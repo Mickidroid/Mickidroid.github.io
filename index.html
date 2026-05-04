@@ -3,142 +3,154 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Michaël | Digital Architect & Low-Coder</title>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;700&display=swap" rel="stylesheet">
+    <title>Michaël | Creative Editor & E-com Specialist</title>
+    <!-- Polices et Icônes -->
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --glass: rgba(255, 255, 255, 0.8);
-            --accent: #6366f1; /* Indigo moderne */
-            --text: #1e293b;
+            --primary: #00f2ff; /* Cyan néon */
+            --secondary: #7000ff; /* Violet électrique */
+            --dark: #0a0a0c;
+            --card-bg: rgba(255, 255, 255, 0.05);
         }
 
-        * { box-sizing: border-box; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        * { box-sizing: border-box; transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
         
         body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-family: 'Space Grotesk', sans-serif;
             margin: 0;
-            color: var(--text);
-            /* Fond animé fluide */
-            background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-            background-size: 400% 400%;
-            animation: gradientBG 15s ease infinite;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
+            background-color: var(--dark);
+            color: #ffffff;
+            overflow-x: hidden;
         }
 
-        @keyframes gradientBG {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+        /* Animation de fond */
+        .bg-glow {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at 50% 50%, #1a1a2e 0%, #0a0a0c 100%);
+            z-index: -1;
         }
 
-        .portfolio-card {
-            max-width: 1000px;
-            margin: 40px auto;
-            background: var(--glass);
-            backdrop-filter: blur(20px);
-            border-radius: 30px;
-            padding: 60px;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-            border: 1px solid rgba(255, 255, 255, 0.3);
+        .container { max-width: 1100px; margin: 0 auto; padding: 40px 20px; }
+
+        header { text-align: center; padding: 60px 0; }
+        h1 { font-size: 4rem; margin: 0; background: linear-gradient(90deg, var(--primary), var(--secondary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .badge-pro { display: inline-block; padding: 5px 15px; border: 1px solid var(--primary); border-radius: 50px; color: var(--primary); font-size: 0.8rem; letter-spacing: 2px; margin-bottom: 20px; }
+
+        .intro-text { font-size: 1.2rem; color: #a0a0a0; max-width: 700px; margin: 20px auto; line-height: 1.5; }
+
+        /* Grille Interactive */
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 50px; }
+
+        .service-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(255,255,255,0.1);
+            padding: 40px;
+            border-radius: 24px;
+            position: relative;
+            backdrop-filter: blur(10px);
         }
 
-        header { text-align: center; margin-bottom: 60px; }
-        h1 { font-size: 3.5rem; margin: 0; letter-spacing: -2px; font-weight: 800; background: linear-gradient(to right, #1e293b, #6366f1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .role { font-size: 1rem; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 4px; margin-top: 10px; }
-
-        .section-title { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; color: #64748b; margin-top: 40px; margin-bottom: 20px; display: block; border-left: 3px solid var(--accent); padding-left: 10px; }
-
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
-
-        .card {
-            background: rgba(255, 255, 255, 0.5);
-            padding: 30px;
-            border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.5);
+        .service-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-10px);
+            background: rgba(255,255,255,0.08);
+            box-shadow: 0 0 30px rgba(0, 242, 255, 0.1);
         }
 
-        .card:hover { background: white; transform: scale(1.02); box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        .icon-box { font-size: 2.5rem; color: var(--primary); margin-bottom: 20px; }
 
-        .card h3 { margin-top: 0; font-size: 1.2rem; }
-        .card p { font-size: 0.9rem; color: #475569; line-height: 1.7; }
+        .platform-tags { display: flex; gap: 10px; margin-top: 15px; flex-wrap: wrap; }
+        .tag { font-size: 0.7rem; background: rgba(255,255,255,0.1); padding: 4px 10px; border-radius: 4px; color: #ccc; }
 
-        .tech-pill {
-            display: inline-block;
-            padding: 6px 15px;
-            background: white;
-            border-radius: 50px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            margin: 5px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        /* Section Outils Indispensables */
+        .tools-section { margin-top: 80px; text-align: center; }
+        .tools-wrap { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin-top: 30px; }
+        .tool-item { background: #16161a; padding: 15px 25px; border-radius: 12px; border: 1px solid #333; display: flex; align-items: center; gap: 10px; }
+        .tool-item i { color: var(--secondary); }
+
+        /* Footer */
+        footer { margin-top: 100px; text-align: center; padding: 40px; border-top: 1px solid #222; }
+        .cta-btn { 
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            color: #000; font-weight: 700; padding: 18px 40px; border-radius: 12px; text-decoration: none; 
+            display: inline-block; font-size: 1.1rem;
         }
+        .cta-btn:hover { filter: brightness(1.2); transform: scale(1.05); }
 
-        .indispensable { background: var(--accent); color: white; }
-
-        footer { text-align: center; margin-top: 60px; }
-        .btn-contact {
-            background: var(--text);
-            color: white;
-            padding: 18px 45px;
-            text-decoration: none;
-            border-radius: 15px;
-            font-weight: 700;
-            display: inline-block;
-        }
-
-        .btn-contact:hover { background: var(--accent); transform: translateY(-3px); }
-
-        @media (max-width: 768px) {
-            .portfolio-card { padding: 30px; margin: 20px; }
-            h1 { font-size: 2.5rem; }
-        }
+        @media (max-width: 768px) { h1 { font-size: 2.5rem; } }
     </style>
 </head>
 <body>
 
+<div class="bg-glow"></div>
+
 <div class="container">
-    <div class="portfolio-card">
-        <header>
-            <h1>Michaël</h1>
-            <div class="role">Digital Architect & Low-Coder</div>
-            <p style="max-width: 600px; margin: 20px auto; color: #475569;">Expert en automatisation et création de valeur digitale. Je transforme des concepts complexes en solutions fluides grâce à la puissance du Low-Code et de l'IA.</p>
-        </header>
+    <header>
+        <span class="badge-pro">EXPERT DIGITAL OPS</span>
+        <h1>Michaël</h1>
+        <p class="intro-text">
+            Gestionnaire d'écosystèmes E-commerce & Video Editor. 
+            Je pilote la croissance opérationnelle des marques via le Low-Code et la production visuelle de haute précision.
+        </p>
+    </header>
 
-        <span class="section-title">Expertise Stratégique</span>
-        <div class="grid">
-            <div class="card">
-                <h3>Performance IA Vidéo</h3>
-                <p>Déploiement de workflows haute performance : production de <strong>60 assets publicitaires par mois</strong> via Higgsfield et Kling 3.0.</p>
-            </div>
-            <div class="card">
-                <h3>E-commerce Management</h3>
-                <p>Pilotage du lancement de la marque <strong>Bodour</strong>. Gestion du TikTok Seller Center, logistique et conversion de catalogue.</p>
-            </div>
-            <div class="card">
-                <h3>Digital Low-Coding</h3>
-                <p>Conception d'écosystèmes web agiles sans les contraintes du développement traditionnel. Rapidité, efficacité, impact.</p>
+    <div class="services-grid">
+        <!-- TikTok & Shopify -->
+        <div class="service-card">
+            <div class="icon-box"><i class="fa-brands fa-tiktok"></i></div>
+            <h3>Bodour Shop Manager</h3>
+            <p>Gestion stratégique du <strong>TikTok Seller Center FR</strong> et administration de la boutique <strong>Shopify</strong>. Optimisation des stocks, flux produits et conversion.</p>
+            <div class="platform-tags">
+                <span class="tag">TikTok FR</span>
+                <span class="tag">Shopify</span>
+                <span class="tag">E-com Ops</span>
             </div>
         </div>
 
-        <span class="section-title">Mon Stack Indispensable</span>
-        <div style="text-align: center; margin-top: 10px;">
-            <span class="tech-pill indispensable">Gemini & GPT (Co-pilotes stratégiques)</span>
-            <span class="tech-pill">Higgsfield</span>
-            <span class="tech-pill">Kling 3.0</span>
-            <span class="tech-pill">Canva Pro</span>
-            <span class="tech-pill">Eleven Labs</span>
-            <span class="tech-pill">CapCut Desktop</span>
-            <span class="tech-pill">WordPress / Elementor</span>
-            <span class="tech-pill">TikTok Shop Suite</span>
+        <!-- Montage Vidéo -->
+        <div class="service-card">
+            <div class="icon-box"><i class="fa-solid fa-clapperboard"></i></div>
+            <h3>Video Editing & IA</h3>
+            <p>Montage dynamique haute performance. Production de <strong>60 assets publicitaires par mois</strong> avec intégration de workflows IA (Higgsfield, Kling).</p>
+            <div class="platform-tags">
+                <span class="tag">CapCut</span>
+                <span class="tag">Kling 3.0</span>
+                <span class="tag">Higgsfield</span>
+            </div>
         </div>
 
-        <footer>
-            <a href="mailto:tokiniainatovomichael@gmail.com" class="btn-contact">Démarrer une Collaboration</a>
-            <p style="margin-top: 30px; font-size: 0.7rem; color: #94a3b8; letter-spacing: 1px;">© 2026 MICKIDROID | ANTANANARIVO, MG</p>
-        </footer>
+        <!-- Social Media Meta -->
+        <div class="service-card">
+            <div class="icon-box"><i class="fa-solid fa-share-nodes"></i></div>
+            <h3>Omnicanal Publication</h3>
+            <p>Déploiement et gestion des publications sur l'écosystème Meta (<strong>Instagram & Facebook</strong>). Maximisation de la portée organique et cohérence de marque.</p>
+            <div class="platform-tags">
+                <span class="tag">Meta Business</span>
+                <span class="tag">Instagram</span>
+                <span class="tag">Facebook</span>
+            </div>
+        </div>
     </div>
+
+    <div class="tools-section">
+        <h2 style="font-size: 0.9rem; letter-spacing: 3px; color: #555; text-transform: uppercase;">L'Arsenal du Low-Coder</h2>
+        <div class="tools-wrap">
+            <div class="tool-item"><i class="fa-solid fa-brain"></i> <strong>Gemini (Stratégie)</strong></div>
+            <div class="tool-item"><i class="fa-solid fa-wand-magic-sparkles"></i> Canva Pro</div>
+            <div class="tool-item"><i class="fa-solid fa-microphone"></i> Eleven Labs</div>
+            <div class="tool-item"><i class="fa-solid fa-code"></i> Elementor / Astra</div>
+            <div class="tool-item"><i class="fa-solid fa-bolt"></i> Meta Business Suite</div>
+        </div>
+    </div>
+
+    <footer>
+        <p style="margin-bottom: 30px; color: #888;">Besoin d'une structure digitale solide ?</p>
+        <a href="mailto:tokiniainatovomichael@gmail.com" class="cta-btn">Lancer un projet</a>
+        <p style="margin-top: 50px; font-size: 0.7rem; color: #444;">© 2026 MICKIDROID | ANTANANARIVO</p>
+    </footer>
 </div>
 
 </body>
