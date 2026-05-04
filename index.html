@@ -3,119 +3,100 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Michaël | Creative Video Editor & E-com Ops</title>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
+    <title>Tokiniaina Michaël | Digital Architect</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;700&family=Syncopate:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        :root {
-            --primary: #00f2ff;
-            --secondary: #7000ff;
-            --dark: #0a0a0c;
-            --glass: rgba(255, 255, 255, 0.03);
-        }
+        :root { --primary: #00f2ff; --secondary: #7000ff; --dark: #08080a; --glass: rgba(255,255,255,0.03); }
+        * { box-sizing: border-box; transition: 0.3s ease; }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; margin: 0; background: var(--dark); color: #fff; line-height: 1.6; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+        
+        /* Header & Hero */
+        header { padding: 80px 0; display: grid; grid-template-columns: 300px 1fr; gap: 50px; align-items: center; }
+        .profile-img { width: 300px; height: 380px; border-radius: 24px; object-fit: cover; border: 1px solid rgba(255,255,255,0.1); filter: grayscale(20%); }
+        h1 { font-family: 'Syncopate', sans-serif; font-size: 2.5rem; margin: 0; line-height: 1.1; background: linear-gradient(to right, #fff, var(--primary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .tagline { color: var(--primary); font-weight: 700; letter-spacing: 3px; font-size: 0.8rem; text-transform: uppercase; margin-bottom: 15px; display: block; }
 
-        body { font-family: 'Space Grotesk', sans-serif; margin: 0; background-color: var(--dark); color: #fff; scroll-behavior: smooth; }
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        /* Quick Links */
+        .drive-actions { display: flex; gap: 15px; margin-top: 30px; }
+        .btn { padding: 12px 25px; border-radius: 12px; text-decoration: none; font-weight: 700; font-size: 0.9rem; display: flex; align-items: center; gap: 10px; }
+        .btn-primary { background: var(--primary); color: #000; }
+        .btn-outline { border: 1px solid rgba(255,255,255,0.2); color: #fff; }
+        .btn:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,242,255,0.2); }
 
-        /* Navigation Style "Page Mère" */
-        nav { padding: 20px 0; border-bottom: 1px solid rgba(255,255,255,0.1); display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; background: rgba(10,10,12,0.8); backdrop-filter: blur(10px); z-index: 100; }
-        .nav-links a { color: #888; text-decoration: none; margin-left: 30px; font-size: 0.9rem; transition: 0.3s; }
-        .nav-links a:hover { color: var(--primary); }
+        /* Grid */
+        .section-title { font-size: 0.7rem; letter-spacing: 4px; color: #555; text-transform: uppercase; margin: 60px 0 30px; border-bottom: 1px solid #222; padding-bottom: 10px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+        .card { background: var(--glass); padding: 35px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.05); }
+        .card:hover { border-color: var(--secondary); background: rgba(112,0,255,0.05); }
+        .card i { font-size: 2rem; color: var(--primary); margin-bottom: 20px; }
+        .card h3 { margin: 0 0 10px 0; font-size: 1.2rem; }
+        .card p { color: #888; font-size: 0.9rem; margin: 0; }
 
-        /* Widget "À Propos" Interactif */
-        .profile-widget { background: linear-gradient(145deg, #16161a, #0a0a0c); border: 1px solid #333; border-radius: 24px; padding: 40px; margin: 40px 0; display: flex; gap: 40px; align-items: center; box-shadow: 0 20px 50px rgba(0,0,0,0.5); }
-        .profile-img { width: 120px; height: 120px; border-radius: 50%; background: var(--secondary); border: 4px solid var(--primary); display: flex; align-items: center; justify-content: center; font-size: 3rem; }
-        .profile-info h2 { margin: 0 0 10px 0; font-size: 2rem; }
-
-        /* Grille de Réalisations */
-        .showcase-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; margin: 60px 0; }
-        .video-card { background: var(--glass); border: 1px solid rgba(255,255,255,0.05); border-radius: 20px; overflow: hidden; transition: 0.4s; }
-        .video-card:hover { border-color: var(--primary); transform: translateY(-10px); }
-        .video-placeholder { width: 100%; height: 200px; background: #1a1a1e; display: flex; align-items: center; justify-content: center; color: #444; font-size: 3rem; }
-        .card-content { padding: 25px; }
-
-        /* Compétences Maîtrisées */
-        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 30px; }
-        .skill-item { background: rgba(255,255,255,0.05); padding: 15px; border-radius: 12px; display: flex; align-items: center; gap: 10px; font-weight: 500; border: 1px solid transparent; }
-        .skill-item:hover { border-color: var(--secondary); background: rgba(112, 0, 255, 0.1); }
-        .skill-item i { color: var(--primary); }
-
-        footer { text-align: center; padding: 80px 0; border-top: 1px solid #222; margin-top: 100px; }
-        .cta-main { background: linear-gradient(90deg, var(--primary), var(--secondary)); color: #000; padding: 20px 50px; border-radius: 12px; text-decoration: none; font-weight: 800; font-size: 1.2rem; display: inline-block; transition: 0.3s; }
-        .cta-main:hover { transform: scale(1.05); box-shadow: 0 0 30px rgba(0, 242, 255, 0.3); }
+        /* Contact Footer */
+        .footer-contact { margin: 80px 0; padding: 60px; background: #111; border-radius: 30px; text-align: center; border: 1px solid var(--secondary); }
+        .contact-grid { display: flex; justify-content: center; gap: 40px; margin-top: 30px; flex-wrap: wrap; }
+        .contact-link { color: #fff; text-decoration: none; font-weight: 600; display: flex; align-items: center; gap: 10px; }
+        .contact-link:hover { color: var(--primary); }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <nav>
-        <div style="font-weight: 800; font-size: 1.5rem; letter-spacing: -1px;">MICKIDROID<span style="color: var(--primary);">.</span></div>
-        <div class="nav-links">
-            <a href="#projets">Réalisations</a>
-            <a href="#competences">Compétences</a>
-            <a href="mailto:tokiniainatovomichael@gmail.com">Contact</a>
-        </div>
-    </nav>
-
-    <!-- Widget "À Propos" -->
-    <div class="profile-widget">
-        <div class="profile-img">
-            <i class="fa-solid fa-user-ninja"></i>
-        </div>
-        <div class="profile-info">
-            <span style="color: var(--primary); font-weight: 700; font-size: 0.8rem; letter-spacing: 2px;">GESTIONNAIRE OPÉRATIONNEL</span>
-            <h2>Michaël</h2>
-            <p style="color: #aaa; margin-bottom: 20px;">
-                Expert en <strong>E-commerce Management</strong> (TikTok Seller Center FR, Shopify) et <strong>Montage Vidéo</strong> haute performance. Basé à Antananarivo, j'accompagne la marque <strong>Bodour</strong> dans son expansion omnicanale.
+    <header>
+        <img src="https://mickidroid.github.io/image_98bcb7.jpg" alt="Tokiniaina Michaël" class="profile-img">
+        <div>
+            <span class="tagline">Community Manager & Web Architect</span>
+            <h1>Tokiniaina Michaël</h1>
+            <p style="color:#aaa; font-size: 1.1rem; margin-top: 20px;">
+                Expert en marketing digital polyvalent. Spécialiste de la croissance de marque via le Community Management, le SEO et les solutions E-commerce (Shopify/TikTok Shop).
             </p>
-            <div style="display: flex; gap: 15px;">
-                <span class="skill-item" style="font-size: 0.8rem;"><i class="fa-solid fa-bolt"></i> +60 Vidéos / mois</span>
-                <span class="skill-item" style="font-size: 0.8rem;"><i class="fa-solid fa-check-double"></i> Multi-Platform Sync</span>
+            
+            <div class="drive-actions">
+                <a href="https://drive.google.com/file/d/1j4saLBoAMc1kNlCJmsSURu0SWkZ0T02q/view?usp=sharing" class="btn btn-primary" target="_blank">
+                    <i class="fa-solid fa-file-pdf"></i> Voir le CV complet
+                </a>
+                <a href="https://drive.google.com/drive/folders/1Wew1dCpIvqizVyB5BcDOTj-Aj30oUy5x?usp=drive_link" class="btn btn-outline" target="_blank">
+                    <i class="fa-solid fa-play"></i> Showreel Vidéos
+                </a>
+                <a href="https://drive.google.com/drive/folders/1lV5lU9wlutyCX9FL7s-3kRV4zxHuQMqj?usp=sharing" class="btn btn-outline" target="_blank">
+                    <i class="fa-solid fa-images"></i> Visuels Bodour
+                </a>
             </div>
+        </div>
+    </header>
+
+    <span class="section-title">Compétences Maîtrisées</span>
+    <div class="grid">
+        <div class="card">
+            <i class="fa-brands fa-wordpress"></i>
+            <h3>Web Design (Low-Code)</h3>
+            <p>Conception de sites vitrines et e-commerce via WordPress, Elementor et Shopify. Focus sur l'UX et le responsive design.[cite: 1]</p>
+        </div>
+        <div class="card">
+            <i class="fa-solid fa-chart-line"></i>
+            <h3>SEA & Google Ads</h3>
+            <p>Création et suivi de campagnes Search/Display. Optimisation continue du CPC et des conversions.[cite: 1]</p>
+        </div>
+        <div class="card">
+            <i class="fa-solid fa-video"></i>
+            <h3>Production Vidéo IA</h3>
+            <p>Maîtrise de CapCut et des outils IA (Higgsfield/Kling) pour un flux de production de +60 vidéos/mois.</p>
         </div>
     </div>
 
-    <!-- Section Compétences Maîtrisées -->
-    <section id="competences">
-        <h3 style="font-size: 0.9rem; letter-spacing: 3px; color: #555; text-transform: uppercase;">Compétences Maîtrisées</h3>
-        <div class="skills-grid">
-            <div class="skill-item"><i class="fa-solid fa-scissors"></i> CapCut Desktop</div>
-            <div class="skill-item"><i class="fa-solid fa-microphone-lines"></i> Eleven Labs</div>
-            <div class="skill-item"><i class="fa-solid fa-store"></i> TikTok Seller Center</div>
-            <div class="skill-item"><i class="fa-brands fa-shopify"></i> Shopify Admin</div>
-            <div class="skill-item"><i class="fa-brands fa-meta"></i> Meta Business Suite</div>
-            <div class="skill-item"><i class="fa-solid fa-robot"></i> Higgsfield & Kling</div>
+    <div class="footer-contact">
+        <h2 style="font-family: 'Syncopate';">Travaillons ensemble</h2>
+        <div class="contact-grid">
+            <a href="https://wa.me/261376520724" class="contact-link"><i class="fa-brands fa-whatsapp"></i> +261 37 652 07 24</a>
+            <a href="mailto:tokiniainatovomichael@gmail.com" class="contact-link"><i class="fa-solid fa-envelope"></i> tokiniainatovomichael@gmail.com</a>
+            <a href="tel:+261349593226" class="contact-link"><i class="fa-solid fa-phone"></i> +261 34 959 32 26</a>
         </div>
-    </section>
+    </div>
 
-    <!-- Section Réalisations (Page Fille) -->
-    <section id="projets">
-        <h3 style="font-size: 0.9rem; letter-spacing: 3px; color: #555; text-transform: uppercase; margin-top: 80px;">Réalisations & Case Studies</h3>
-        <div class="showcase-grid">
-            <!-- Projet Bodour -->
-            <div class="video-card">
-                <div class="video-placeholder"><i class="fa-brands fa-tiktok"></i></div>
-                <div class="card-content">
-                    <h4>Bodour : Gestion TikTok Shop FR</h4>
-                    <p style="color: #888; font-size: 0.9rem;">Optimisation complète du catalogue, gestion du shopify et publication synchronisée sur Insta/Facebook.</p>
-                </div>
-            </div>
-
-            <!-- Projet Montage Vidéo -->
-            <div class="video-card">
-                <div class="video-placeholder"><i class="fa-solid fa-play"></i></div>
-                <div class="card-content">
-                    <h4>Production High-Volume (IA)</h4>
-                    <p style="color: #888; font-size: 0.9rem;">Workflow de montage dynamique optimisé pour les réseaux sociaux. Focus sur la rétention et l'esthétique premium.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <h2 style="font-size: 2.5rem; margin-bottom: 40px;">Prêt à automatiser votre croissance ?</h2>
-        <a href="mailto:tokiniainatovomichael@gmail.com" class="cta-main">LANCER LA COLLABORATION</a>
-        <p style="margin-top: 60px; color: #333; font-size: 0.8rem;">© 2026 MICKIDROID | ANTANANARIVO, MG</p>
+    <footer style="text-align: center; padding-bottom: 40px; color: #444; font-size: 0.7rem; letter-spacing: 2px;">
+        © 2026 MICKIDROID | ANTANANARIVO - MG
     </footer>
 </div>
 
