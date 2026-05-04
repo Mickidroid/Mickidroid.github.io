@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Michaël | Expert Marketing Digital & IA</title>
+    <!-- Importation d'une police élégante -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #000000;
+            --secondary: #666666;
+            --accent: #007AFF; /* Bleu pro fluide */
+            --bg: #ffffff;
+            --card-bg: #f9f9f9;
+        }
+
+        * { box-sizing: border-box; transition: all 0.3s ease; }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            background-color: var(--bg);
+            color: var(--primary);
+            line-height: 1.6;
+        }
+
+        .container { max-width: 1000px; margin: 0 auto; padding: 60px 20px; }
+
+        /* Header fluide */
+        header { text-align: center; margin-bottom: 80px; animation: fadeIn 1s ease-in; }
+        h1 { font-size: 3rem; margin: 0; letter-spacing: -2px; font-weight: 700; }
+        .tagline { font-size: 1.2rem; color: var(--secondary); margin-top: 10px; text-transform: uppercase; letter-spacing: 3px; }
+
+        /* Grille de projets */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid #eee;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+            border-color: var(--accent);
+        }
+
+        .card h3 { margin-top: 0; font-size: 1.4rem; color: var(--primary); }
+        .card p { color: var(--secondary); font-size: 0.95rem; }
+        .badge {
+            display: inline-block;
+            padding: 4px 12px;
+            background: #eef2ff;
+            color: var(--accent);
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        /* Section Expertise */
+        .expertise-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .skill {
+            background: #000;
+            color: #fff;
+            padding: 8px 18px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+        }
+
+        /* Footer & Contact */
+        footer {
+            margin-top: 100px;
+            text-align: center;
+            border-top: 1px solid #eee;
+            padding-top: 40px;
+        }
+
+        .btn-contact {
+            background: var(--primary);
+            color: white;
+            padding: 15px 40px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            display: inline-block;
+            margin-top: 20px;
+        }
+
+        .btn-contact:hover { background: var(--accent); }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>Michaël</h1>
+        <div class="tagline">Community Manager & AI Content Creator</div>
+        <p>Expert en croissance digitale et production vidéo haute fidélité basé à Madagascar.</p>
+    </header>
+
+    <h2 style="text-align:center; text-transform:uppercase; font-size:0.8rem; letter-spacing:2px; color:#999;">Études de cas & Performance</h2>
+    
+    <div class="grid">
+        <!-- Projet 1 -->
+        <div class="card">
+            <span class="badge">E-COMMERCE</span>
+            <h3>Marque Bodour</h3>
+            <p>Responsable du lancement digital : gestion complète du TikTok Shop Seller Center et optimisation du catalogue produit.</p>
+        </div>
+
+        <!-- Projet 2 -->
+        <div class="card">
+            <span class="badge">IA GÉNÉRATIVE</span>
+            <h3>Production Massive</h3>
+            <p>Création de 60 vidéos publicitaires en 30 jours via Higgsfield et Kling 3.0 avec une esthétique premium.</p>
+        </div>
+
+        <!-- Projet 3 -->
+        <div class="card">
+            <span class="badge">WEB & SEO</span>
+            <h3>Optimisation Technique</h3>
+            <p>Audit et amélioration SEO pour autoexpert360.fr et développement de solutions e-commerce WordPress.</p>
+        </div>
+    </div>
+
+    <header style="margin-top:80px; margin-bottom:20px;">
+        <h2 style="text-transform:uppercase; font-size:0.8rem; letter-spacing:2px; color:#999;">Stack Technique</h2>
+        <div class="expertise-list">
+            <span class="skill">Canva Pro</span>
+            <span class="skill">Higgsfield</span>
+            <span class="skill">TikTok Seller Center</span>
+            <span class="skill">CapCut</span>
+            <span class="skill">Eleven Labs</span>
+            <span class="skill">WordPress</span>
+        </div>
+    </header>
+
+    <footer>
+        <h3>Un projet en tête ?</h3>
+        <p>Disponible pour des collaborations stratégiques et créatives.</p>
+        <a href="mailto:tokiniainatovomichael@gmail.com" class="btn-contact">Envoyer un Message</a>
+        <p style="margin-top:40px; font-size:0.7rem; color:#ccc;">© 2026 Mickidroid | Propulsé par GitHub Pages</p>
+    </footer>
+</div>
+
+</body>
+</html>
