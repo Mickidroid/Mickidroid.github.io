@@ -7,108 +7,142 @@
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600&family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        :root { --gold: #c5a059; --dark-bg: #0a0a0a; --glass: rgba(255,255,255,0.02); }
-        * { box-sizing: border-box; transition: all 0.4s ease; }
-        body { font-family: 'Montserrat', sans-serif; background: var(--dark-bg); color: #fff; margin: 0; overflow-x: hidden; }
+        :root { --gold: #c5a059; --dark-bg: #0a0a0a; --glass: rgba(255,255,255,0.03); }
+        * { box-sizing: border-box; transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); }
+        body { font-family: 'Montserrat', sans-serif; background: var(--dark-bg); color: #fff; margin: 0; scroll-behavior: smooth; }
         
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 25px; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 25px; }
 
-        /* Galerie de Photos Creative */
-        .photo-strip { display: flex; gap: 15px; margin: 40px 0; height: 500px; }
-        .photo-item { flex: 1; border-radius: 20px; background-size: cover; background-position: center; filter: grayscale(40%); border: 1px solid rgba(255,255,255,0.1); }
-        .photo-item:hover { flex: 2; filter: grayscale(0%); border-color: var(--gold); }
+        header { text-align: center; padding: 100px 0 60px; }
+        h1 { font-family: 'Cormorant Garamond', serif; font-size: 4.5rem; margin: 0; }
+        .role { color: var(--gold); letter-spacing: 5px; font-weight: 300; text-transform: uppercase; font-size: 0.9rem; margin-bottom: 10px; display: block; }
 
-        /* Hero Luxe */
-        header { text-align: center; padding: 60px 0; }
-        h1 { font-family: 'Cormorant Garamond', serif; font-size: 4rem; margin: 0; letter-spacing: -1px; }
-        .role { color: var(--gold); letter-spacing: 5px; font-weight: 300; text-transform: uppercase; font-size: 0.9rem; }
+        /* Icon Animation Section */
+        .skills-detail { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin: 50px 0; }
+        .skill-box { background: var(--glass); padding: 40px; border-radius: 25px; border: 1px solid rgba(255,255,255,0.05); }
+        .skill-box:hover { transform: translateY(-10px); border-color: var(--gold); background: rgba(197, 160, 89, 0.05); }
+        .skill-box i { font-size: 2.5rem; color: var(--gold); margin-bottom: 20px; }
+        .skill-box ul { padding: 0; list-style: none; color: #888; font-size: 0.9rem; }
+        .skill-box li { margin-bottom: 10px; display: flex; align-items: center; gap: 10px; }
+        .skill-box li::before { content: "→"; color: var(--gold); }
 
-        /* Collaboration CTA */
-        .cta-collab { display: inline-block; margin-top: 30px; padding: 18px 45px; background: #fff; color: #000; text-decoration: none; font-weight: 800; border-radius: 50px; text-transform: uppercase; font-size: 0.8rem; }
-        .cta-collab:hover { background: var(--gold); color: #fff; transform: scale(1.05); }
+        /* CTA & Hidden Pricing */
+        .cta-container { text-align: center; margin: 50px 0; }
+        .cta-collab { display: inline-block; padding: 20px 50px; background: #fff; color: #000; text-decoration: none; font-weight: 800; border-radius: 50px; text-transform: uppercase; cursor: pointer; border: none; }
+        .cta-collab:hover { background: var(--gold); color: #fff; box-shadow: 0 10px 30px rgba(197,160,89,0.3); }
 
-        /* Travail Bodour Section */
-        .bodour-section { background: var(--glass); padding: 40px; border-radius: 30px; border: 1px solid rgba(255,255,255,0.05); margin: 60px 0; }
-        .badge-bodour { background: #000; border: 1px solid var(--gold); padding: 5px 15px; border-radius: 10px; font-size: 0.7rem; color: var(--gold); }
+        #pricing-section { max-height: 0; overflow: hidden; opacity: 0; transition: all 0.8s ease; }
+        #pricing-section.show { max-height: 2000px; opacity: 1; margin-top: 50px; }
 
-        /* Pricing Table Premium */
-        .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; margin: 60px 0; }
-        .price-card { background: #000; border: 1px solid #222; padding: 30px; border-radius: 25px; position: relative; text-align: center; }
-        .price-card:hover { border-color: var(--gold); }
-        .price-card h4 { color: #888; font-size: 0.8rem; margin-bottom: 10px; }
-        .price-card .amount { font-size: 1.8rem; font-weight: 700; color: var(--gold); }
-        .price-card .amount span { font-size: 0.9rem; color: #444; }
+        .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
+        .price-card { background: #111; border: 1px solid #222; padding: 30px; border-radius: 25px; text-align: center; }
+        .price-card .amount { font-size: 1.8rem; font-weight: 700; color: var(--gold); margin: 15px 0; }
+        .negotiable { font-size: 0.7rem; color: #555; text-transform: uppercase; letter-spacing: 1px; }
 
-        .footer { border-top: 1px solid #111; padding: 60px 0; text-align: center; }
-        .contact-pill { display: flex; justify-content: center; gap: 30px; margin-top: 20px; }
-        .contact-pill a { color: #fff; text-decoration: none; font-size: 0.9rem; opacity: 0.6; }
-        .contact-pill a:hover { opacity: 1; color: var(--gold); }
+        .footer { border-top: 1px solid #111; padding: 80px 0; text-align: center; }
+        .contact-links { display: flex; justify-content: center; gap: 30px; margin-top: 30px; }
+        .contact-links a { color: #fff; text-decoration: none; font-weight: 600; font-size: 0.9rem; }
+        .contact-links a:hover { color: var(--gold); }
     </style>
 </head>
 <body>
 
 <div class="container">
     <header>
-        <span class="role">Directeur Créatif & Ops</span>
+        <span class="role">Directeur Créatif & Ops Digital</span>
         <h1>Tokiniaina Michaël</h1>
-        <p style="max-width: 600px; margin: 20px auto; color: #777;">Architecte de l'image de marque. Expert en croissance digitale pour entreprises exigeantes.</p>
-        <a href="#collab" class="cta-collab">Démarrer une Collaboration</a>
+        <p style="max-width: 650px; margin: 25px auto; color: #666; line-height: 1.8;">
+            Spécialiste marketing digital expert en Community Management, SEO et infrastructure web. 
+            Accompagnement premium pour la croissance de votre image de marque.
+        </p>
     </header>
 
-    <!-- Galerie Interactive avec tes nouvelles photos -->
-    <div class="photo-strip">
-        <div class="photo-item" style="background-image: url('https://mickidroid.github.io/image_092305.jpg');"></div>
-        <div class="photo-item" style="background-image: url('https://mickidroid.github.io/image_a941f1.jpg');"></div>
-        <div class="photo-item" style="background-image: url('https://mickidroid.github.io/image_7c6691.jpg');"></div>
-    </div>
-
-    <!-- Section Bodour & Expertise -->
-    <div class="bodour-section">
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
-            <span class="badge-bodour">Case Study: BODOUR</span>
-            <i class="fa-solid fa-star" style="color: var(--gold);"></i>
+    <!-- Section Détails Compétences -->
+    <div class="skills-detail">
+        <div class="skill-box">
+            <i class="fa-solid fa-code"></i>
+            <h3>Architecture Web</h3>
+            <ul>
+                <li>Création via WordPress & Elementor[cite: 1]</li>
+                <li>E-commerce Shopify & WooCommerce[cite: 1]</li>
+                <li>Optimisation SEO & Performance[cite: 1]</li>
+                <li>Design Responsive & UX Premium</li>
+            </ul>
         </div>
-        <h3>Production & Stratégie Social Media</h3>
-        <p style="color: #999; font-size: 0.9rem;">
-            Responsable de la chaîne de production visuelle : du montage dynamique de vidéos marketing à la publication stratégique omnicanale. Optimisation du tunnel de vente via un contenu à haute rétention.
-        </p>
-    </div>
-
-    <!-- Grille de Tarifs Attractifs -->
-    <h3 style="text-align: center; font-family: 'Cormorant Garamond'; font-size: 2rem;">Investissement & Services</h3>
-    <div class="pricing-grid">
-        <div class="price-card">
-            <h4>Montage & Post-Prod</h4>
-            <div class="amount">450€ <span>/mois</span></div>
-            <p style="font-size: 0.7rem; color: #555; margin-top: 15px;">Workflow Premium & Montage Dynamique</p>
+        <div class="skill-box">
+            <i class="fa-solid fa-bullhorn"></i>
+            <h3>Digital Marketing</h3>
+            <ul>
+                <li>Gestion TikTok Seller Center FR</li>
+                <li>Campagnes Google Ads (Search/Display)[cite: 1]</li>
+                <li>Stratégie Omnicanale Meta Suite</li>
+                <li>Prospection LinkedIn Sales Navigator[cite: 1]</li>
+            </ul>
         </div>
-        <div class="price-card" style="border-color: var(--gold);">
-            <h4>Création de Site</h4>
-            <div class="amount">500€ <span>/fixe</span></div>
-            <p style="font-size: 0.7rem; color: #555; margin-top: 15px;">E-commerce complet (Shopify/WP)</p>
-        </div>
-        <div class="price-card">
-            <h4>Community Management</h4>
-            <div class="amount">250€ <span>/mois</span></div>
-            <p style="font-size: 0.7rem; color: #555; margin-top: 15px;">Engagement & Publication Stratégique</p>
-        </div>
-        <div class="price-card">
-            <h4>Modification / SEO</h4>
-            <div class="amount">250€ <span>/fixe</span></div>
-            <p style="font-size: 0.7rem; color: #555; margin-top: 15px;">Optimisation & Refonte Technique</p>
+        <div class="skill-box">
+            <i class="fa-solid fa-clapperboard"></i>
+            <h3>Creative Studio</h3>
+            <ul>
+                <li>Montage Vidéo Publicitaire</li>
+                <li>Publication Stratégique (Bodour)</li>
+                <li>Workflow IA (Higgsfield, Kling)</li>
+                <li>Copywriting & Scripting</li>
+            </ul>
         </div>
     </div>
 
-    <div class="footer" id="collab">
-        <h2 style="font-family: 'Cormorant Garamond';">Disponible pour de nouveaux défis.</h2>
-        <div class="contact-pill">
+    <!-- Bouton Collaboration -->
+    <div class="cta-container">
+        <button class="cta-collab" onclick="togglePricing()">Consulter mes Offres</button>
+    </div>
+
+    <!-- Gamme de prix cachée -->
+    <div id="pricing-section">
+        <h3 style="text-align: center; font-family: 'Cormorant Garamond'; font-size: 2.5rem; margin-bottom: 40px;">Tarifs Partenaires</h3>
+        <div class="pricing-grid">
+            <div class="price-card">
+                <h4>Montage Vidéo</h4>
+                <div class="amount">400€ <span>/mois</span></div>
+                <div class="negotiable">Fixe</div>
+            </div>
+            <div class="price-card">
+                <h4>Site E-commerce</h4>
+                <div class="amount">450€ <span>/projet</span></div>
+                <div class="negotiable" style="color: var(--gold);">Négociable</div>
+            </div>
+            <div class="price-card">
+                <h4>Community Management</h4>
+                <div class="amount">200€ <span>/mois</span></div>
+                <div class="negotiable">Fixe</div>
+            </div>
+            <div class="price-card">
+                <h4>Optimisation / Modif</h4>
+                <div class="amount">200€ <span>/fixe</span></div>
+                <div class="negotiable">Fixe</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <h2 style="font-family: 'Cormorant Garamond'; font-size: 2.5rem;">Prêt pour la suite ?</h2>
+        <div class="contact-links">
             <a href="https://wa.me/261376520724"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
             <a href="mailto:tokiniainatovomichael@gmail.com"><i class="fa-solid fa-envelope"></i> Email</a>
-            <a href="https://drive.google.com/file/d/1j4saLBoAMc1kNlCJmsSURu0SWkZ0T02q/view?usp=sharing"><i class="fa-solid fa-file-pdf"></i> Curriculum Vitae</a>
+            <a href="https://drive.google.com/file/d/1j4saLBoAMc1kNlCJmsSURu0SWkZ0T02q/view?usp=sharing"><i class="fa-solid fa-file-pdf"></i> CV Officiel</a>
         </div>
-        <p style="margin-top: 40px; font-size: 0.6rem; color: #333; letter-spacing: 3px;">TOKINIANIA MICKAËL © 2026</p>
+        <p style="margin-top: 50px; font-size: 0.7rem; color: #333; letter-spacing: 3px;">TOKINIANIA MICKAËL | MICKIDROID LAB © 2026</p>
     </div>
 </div>
+
+<script>
+    function togglePricing() {
+        const pricing = document.getElementById('pricing-section');
+        pricing.classList.toggle('show');
+        if (pricing.classList.contains('show')) {
+            window.scrollBy(0, 400);
+        }
+    }
+</script>
 
 </body>
 </html>
