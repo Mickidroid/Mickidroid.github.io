@@ -35,12 +35,13 @@
         .work-btn { padding: 15px 30px; border: 1px solid #222; border-radius: 15px; color: #fff; text-decoration: none; display: flex; align-items: center; gap: 10px; background: rgba(255,255,255,0.02); backdrop-filter: blur(5px); }
         .work-btn:hover { border-color: var(--gold); transform: translateY(-3px); box-shadow: 0 5px 15px rgba(212,175,55,0.1); }
 
-        /* Grid Compétences */
+        /* Grid Compétences basées sur CV */
         .expertise-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; margin-top: 50px; }
         .exp-card { background: var(--card-bg); padding: 45px; border-radius: 32px; border: 1px solid #1a1a1a; }
         .exp-card:hover { border-color: var(--gold); }
         .exp-card i { font-size: 2.5rem; color: var(--gold); margin-bottom: 25px; display: block; }
         .exp-card h3 { font-size: 1.5rem; margin-bottom: 15px; }
+        .exp-card p { font-size: 0.9rem; color: var(--text-muted); }
 
         /* Pricing avec Hover */
         .cta-section { text-align: center; padding: 100px 0; }
@@ -56,7 +57,9 @@
         .p-card:hover .price-desc { opacity: 1; transform: translateY(0); }
         .p-card .price { font-size: 2.2rem; font-weight: 800; color: var(--gold); margin: 15px 0; }
 
+        /* Footer */
         footer { padding: 80px 0; border-top: 1px solid #111; text-align: center; }
+        .thanks-note { max-width: 600px; margin: 0 auto 40px; font-style: italic; color: var(--gold); opacity: 0.8; }
         .links { display: flex; justify-content: center; gap: 40px; margin-bottom: 30px; flex-wrap: wrap; }
         .links a { color: #fff; text-decoration: none; font-weight: 600; opacity: 0.6; }
         .links a:hover { opacity: 1; color: var(--gold); }
@@ -64,7 +67,6 @@
 </head>
 <body>
 
-    <!-- Animation d'arrière-plan -->
     <div class="bg-animate" id="bgAnimate"></div>
 
     <div class="container">
@@ -72,7 +74,7 @@
             <span class="badge-premium">Stratégie & Performance</span>
             <h1>Tokiniaina Michaël</h1>
             <p class="hero-desc">
-                Architecte digital spécialisé dans la croissance de marque. De la conception web à la performance marketing, je transforme votre présence en ligne en un moteur de conversion.
+                Architecte digital basé à Madagascar. Je combine rigueur technique et créativité pour propulser votre présence en ligne au niveau supérieur.
             </p>
             
             <div class="work-links">
@@ -80,31 +82,31 @@
                     <i class="fa-solid fa-play"></i> Showreel Vidéos
                 </a>
                 <a href="https://drive.google.com/drive/folders/1lV5lU9wlutyCX9FL7s-3kRV4zxHuQMqj?usp=sharing" class="work-btn" target="_blank">
-                    <i class="fa-solid fa-gem"></i> Portfolio Bodour
+                    <i class="fa-solid fa-gem"></i> Réalisations Bodour
                 </a>
             </div>
         </header>
 
         <div class="expertise-grid">
             <div class="exp-card">
-                <i class="fa-solid fa-layer-group"></i>
-                <h3>Web & E-commerce</h3>
-                <p>Développement WordPress et Shopify optimisés pour la conversion et le SEO[cite: 1].</p>
+                <i class="fa-solid fa-laptop-code"></i>
+                <h3>Conception Web WordPress</h3>
+                <p>Création de sites professionnels via Elementor avec une maîtrise du design responsive, de l'UX et de l'intégration d'IA pour le contenu.</p>
             </div>
             <div class="exp-card">
-                <i class="fa-solid fa-chart-line"></i>
-                <h3>Performance Ads</h3>
-                <p>Ciblage stratégique Google Ads pour maximiser votre ROI et visibilité[cite: 1].</p>
+                <i class="fa-solid fa-magnifying-glass-chart"></i>
+                <h3>Marketing SEA & SEO</h3>
+                <p>Paramétrage précis de campagnes Google Ads (Search/Display) et rédaction de contenus optimisés pour le référencement naturel.</p>
             </div>
             <div class="exp-card">
-                <i class="fa-solid fa-video"></i>
-                <h3>Content Strategy</h3>
-                <p>Production vidéo haute rétention et gestion d'image de marque (Cas Bodour)[cite: 1].</p>
+                <i class="fa-solid fa-users-gear"></i>
+                <h3>Social Media Management</h3>
+                <p>Community Management expert incluant la création de contenus, la veille stratégique et l'utilisation d'outils CRM et LinkedIn Sales Navigator[cite: 1].</p>
             </div>
         </div>
 
         <div class="cta-section">
-            <button class="btn-collab" onclick="showPricing()">Consulter mes Offres</button>
+            <button class="btn-collab" onclick="showPricing()">Consulter mes Tarifs</button>
             
             <div id="price-list">
                 <h2 style="font-family: 'Cormorant Garamond'; font-size: 2.5rem; margin-bottom: 40px;">Investissement Partenaire</h2>
@@ -113,52 +115,46 @@
                         <h4>Montage Vidéo</h4>
                         <div class="price">400€</div>
                         <div class="type">FIXE / MENSUEL</div>
-                        <div class="price-desc">Montage dynamique, sous-titres, et optimisation pour la rétention sociale.</div>
+                        <div class="price-desc">Édition dynamique, sous-titres premium et optimisation de la rétention pour vos réseaux.</div>
                     </div>
                     <div class="p-card" style="border-color: var(--gold);">
                         <h4>Site E-commerce</h4>
                         <div class="price">450€</div>
                         <div class="type">NÉGOCIABLE / PROJET</div>
-                        <div class="price-desc">Boutique complète mobile-first, optimisée pour la vente immédiate.</div>
+                        <div class="price-desc">Boutique complète (Shopify/WooCommerce) livrée clé en main et optimisée pour la vente[cite: 1].</div>
                     </div>
                     <div class="p-card">
                         <h4>Community Management</h4>
                         <div class="price">200€</div>
                         <div class="type">FIXE / MENSUEL</div>
-                        <div class="price-desc">Gestion des réseaux, engagement client et planification de contenus.</div>
-                    </div>
-                    <div class="p-card">
-                        <h4>Optimisation SEO</h4>
-                        <div class="price">200€</div>
-                        <div class="type">FIXE / PROJET</div>
-                        <div class="price-desc">Audit technique et amélioration du classement sur les moteurs de recherche.</div>
+                        <div class="price-desc">Planification, création de posts et gestion quotidienne de votre image de marque[cite: 1].</div>
                     </div>
                 </div>
             </div>
         </div>
 
         <footer>
+            <p class="thanks-note">Merci d'avoir pris le temps de visiter mon portfolio. J'ai hâte de transformer vos idées en succès digitaux.</p>
             <div class="links">
                 <a href="https://wa.me/261376520724">WhatsApp</a>
-                <a href="mailto:tokiniainatovomichael@gmail.com">Email</a>
-                <a href="https://drive.google.com/file/d/1j4saLBoAMc1kNlCJmsSURu0SWkZ0T02q/view?usp=sharing">Curriculum Vitae</a>
+                <a href="mailto:tokiniainatovomichael@gmail.com">Email Business</a>
+                <a href="https://drive.google.com/file/d/1j4saLBoAMc1kNlCJmsSURu0SWkZ0T02q/view?usp=sharing">Télécharger mon CV</a>
             </div>
             <p style="font-size: 0.7rem; color: #444; letter-spacing: 4px;">TOKINIANIA MICKAËL | MICKIDROID LAB © 2026</p>
         </footer>
     </div>
 
     <script>
-        // Générateur d'icônes flottantes
-        const icons = ['fa-video', 'fa-tiktok', 'fa-instagram', 'fa-youtube', 'fa-facebook', 'fa-play'];
+        const icons = ['fa-video', 'fa-code', 'fa-chart-line', 'fa-play', 'fa-hashtag'];
         const bg = document.getElementById('bgAnimate');
         
-        for (let i = 0; i < 15; i++) {
+        for (let i = 0; i < 12; i++) {
             const icon = document.createElement('i');
             icon.className = `fa-solid ${icons[Math.floor(Math.random() * icons.length)]} floating-icon`;
             icon.style.left = `${Math.random() * 100}vw`;
-            icon.style.animationDuration = `${10 + Math.random() * 15}s`;
-            icon.style.animationDelay = `${Math.random() * 10}s`;
-            icon.style.fontSize = `${1 + Math.random() * 2}rem`;
+            icon.style.animationDuration = `${12 + Math.random() * 10}s`;
+            icon.style.animationDelay = `${Math.random() * 5}s`;
+            icon.style.fontSize = `${1.2 + Math.random()}rem`;
             bg.appendChild(icon);
         }
 
@@ -166,7 +162,7 @@
             const list = document.getElementById('price-list');
             list.classList.toggle('active');
             if (list.classList.contains('active')) {
-                window.scrollBy({ top: 500, behavior: 'smooth' });
+                window.scrollBy({ top: 400, behavior: 'smooth' });
             }
         }
     </script>
