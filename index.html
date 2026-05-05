@@ -3,66 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Michaël | Digital Partner & Growth Engineer</title>
+    <title>Michaël | Digital Architect & Growth Engineer</title>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600&family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        :root { --gold: #d4af37; --dark-bg: #050505; --card-bg: #0f0f0f; --text-muted: #888; }
+        :root { --gold: #d4af37; --gold-light: #f1d592; --dark-bg: #050505; --card-bg: #0f0f0f; --text-muted: #888; }
         * { box-sizing: border-box; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
         body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--dark-bg); color: #fff; margin: 0; line-height: 1.6; overflow-x: hidden; }
         
-        /* Floating Icons Animation */
+        /* Background Animated Icons */
         .bg-animate { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; overflow: hidden; pointer-events: none; }
-        .floating-icon { position: absolute; color: rgba(212, 175, 55, 0.05); font-size: 2rem; animation: float 15s infinite linear; }
-        @keyframes float {
-            0% { transform: translateY(110vh) rotate(0deg); opacity: 0; }
-            10% { opacity: 1; }
-            90% { opacity: 1; }
-            100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
-        }
+        .floating-icon { position: absolute; color: rgba(212, 175, 55, 0.04); animation: float 18s infinite linear; }
+        @keyframes float { 0% { transform: translateY(110vh) rotate(0deg); opacity: 0; } 10% { opacity: 1; } 90% { opacity: 1; } 100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; } }
 
         .container { max-width: 1200px; margin: 0 auto; padding: 0 30px; position: relative; z-index: 1; }
 
-        header { padding: 120px 0 80px; opacity: 0; animation: fadeIn 1s forwards; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        /* Header Premium */
+        header { padding: 140px 0 60px; opacity: 0; animation: fadeIn 1.2s forwards; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        
+        .badge-premium { display: inline-block; padding: 8px 20px; border: 1px solid var(--gold); color: var(--gold); border-radius: 50px; font-size: 0.7rem; font-weight: 800; letter-spacing: 3px; margin-bottom: 25px; text-transform: uppercase; background: rgba(212, 175, 55, 0.05); }
+        h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(3rem, 8vw, 6rem); margin: 0; line-height: 0.85; font-weight: 600; background: linear-gradient(to right, #fff, var(--gold)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero-desc { max-width: 800px; font-size: 1.2rem; color: var(--text-muted); margin-top: 40px; font-weight: 300; }
 
-        .badge-premium { display: inline-block; padding: 6px 15px; border: 1px solid var(--gold); color: var(--gold); border-radius: 50px; font-size: 0.7rem; font-weight: 700; letter-spacing: 2px; margin-bottom: 20px; text-transform: uppercase; }
-        h1 { font-family: 'Cormorant Garamond', serif; font-size: 5rem; margin: 0; line-height: 0.9; font-weight: 600; }
-        .hero-desc { max-width: 700px; font-size: 1.1rem; color: var(--text-muted); margin-top: 30px; }
+        /* Stats Section */
+        .stats-bar { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; margin: 80px 0; border-top: 1px solid #111; padding-top: 40px; }
+        .stat-item h3 { font-size: 2.5rem; margin: 0; color: var(--gold); }
+        .stat-item p { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; color: #555; }
 
-        /* Réalisations */
-        .work-links { margin: 60px 0; display: flex; gap: 20px; flex-wrap: wrap; }
-        .work-btn { padding: 15px 30px; border: 1px solid #222; border-radius: 15px; color: #fff; text-decoration: none; display: flex; align-items: center; gap: 10px; background: rgba(255,255,255,0.02); backdrop-filter: blur(5px); }
-        .work-btn:hover { border-color: var(--gold); transform: translateY(-3px); box-shadow: 0 5px 15px rgba(212,175,55,0.1); }
+        /* Expertise Cards */
+        .expertise-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; }
+        .exp-card { background: var(--card-bg); padding: 50px; border-radius: 40px; border: 1px solid #1a1a1a; position: relative; overflow: hidden; }
+        .exp-card:hover { border-color: var(--gold); box-shadow: 0 20px 40px rgba(0,0,0,0.5); }
+        .exp-card i { font-size: 3rem; color: var(--gold); margin-bottom: 30px; display: block; opacity: 0.8; }
+        .exp-card h3 { font-size: 1.6rem; margin-bottom: 20px; font-family: 'Cormorant Garamond', serif; }
+        .exp-card ul { padding: 0; list-style: none; color: var(--text-muted); font-size: 0.9rem; }
+        .exp-card li { margin-bottom: 12px; display: flex; align-items: center; gap: 10px; }
+        .exp-card li::before { content: "◈"; color: var(--gold); font-size: 0.7rem; }
 
-        /* Grid Compétences basées sur CV */
-        .expertise-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; margin-top: 50px; }
-        .exp-card { background: var(--card-bg); padding: 45px; border-radius: 32px; border: 1px solid #1a1a1a; }
-        .exp-card:hover { border-color: var(--gold); }
-        .exp-card i { font-size: 2.5rem; color: var(--gold); margin-bottom: 25px; display: block; }
-        .exp-card h3 { font-size: 1.5rem; margin-bottom: 15px; }
-        .exp-card p { font-size: 0.9rem; color: var(--text-muted); }
+        /* Pricing Section */
+        .cta-section { text-align: center; padding: 120px 0; }
+        .btn-collab { padding: 25px 80px; background: #fff; color: #000; border-radius: 100px; font-weight: 900; text-transform: uppercase; cursor: pointer; border: none; font-size: 1.1rem; letter-spacing: 2px; }
+        .btn-collab:hover { background: var(--gold); color: #fff; transform: scale(1.05) translateY(-5px); box-shadow: 0 20px 50px rgba(212,175,55,0.2); }
 
-        /* Pricing avec Hover */
-        .cta-section { text-align: center; padding: 100px 0; }
-        .btn-collab { padding: 22px 60px; background: #fff; color: #000; border-radius: 100px; font-weight: 800; text-transform: uppercase; cursor: pointer; border: none; font-size: 1rem; }
-        .btn-collab:hover { background: var(--gold); color: #fff; transform: scale(1.05); }
+        #price-list { max-height: 0; overflow: hidden; opacity: 0; transition: 1.5s cubic-bezier(0.16, 1, 0.3, 1); }
+        #price-list.active { max-height: 2000px; opacity: 1; margin-top: 80px; }
 
-        #price-list { max-height: 0; overflow: hidden; opacity: 0; transition: 1.2s cubic-bezier(0.16, 1, 0.3, 1); }
-        #price-list.active { max-height: 1500px; opacity: 1; margin-top: 60px; }
-
-        .price-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 25px; }
-        .p-card { background: #080808; border: 1px solid #1a1a1a; padding: 40px; border-radius: 30px; text-align: center; position: relative; overflow: hidden; }
-        .p-card .price-desc { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: var(--gold); color: #000; padding: 30px; display: flex; align-items: center; justify-content: center; font-size: 0.85rem; font-weight: 700; opacity: 0; transform: translateY(100%); transition: 0.4s ease; }
-        .p-card:hover .price-desc { opacity: 1; transform: translateY(0); }
-        .p-card .price { font-size: 2.2rem; font-weight: 800; color: var(--gold); margin: 15px 0; }
+        .price-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .p-card { background: #080808; border: 1px solid #1a1a1a; padding: 50px; border-radius: 40px; text-align: center; position: relative; overflow: hidden; }
+        .p-card:hover { border-color: var(--gold); }
+        .p-card .price-desc { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, var(--gold), var(--gold-light)); color: #000; padding: 40px; display: flex; flex-direction: column; align-items: center; justify-content: center; font-weight: 700; opacity: 0; transform: scale(1.1); transition: 0.5s ease; }
+        .p-card:hover .price-desc { opacity: 1; transform: scale(1); }
+        .price-desc h5 { margin: 0 0 15px 0; text-transform: uppercase; letter-spacing: 2px; }
 
         /* Footer */
-        footer { padding: 80px 0; border-top: 1px solid #111; text-align: center; }
-        .thanks-note { max-width: 600px; margin: 0 auto 40px; font-style: italic; color: var(--gold); opacity: 0.8; }
-        .links { display: flex; justify-content: center; gap: 40px; margin-bottom: 30px; flex-wrap: wrap; }
-        .links a { color: #fff; text-decoration: none; font-weight: 600; opacity: 0.6; }
-        .links a:hover { opacity: 1; color: var(--gold); }
+        footer { padding: 100px 0 60px; border-top: 1px solid #111; text-align: center; background: linear-gradient(to bottom, transparent, #0a0a0a); }
+        .thanks-note { max-width: 700px; margin: 0 auto 50px; font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; color: #fff; line-height: 1.2; }
+        .links { display: flex; justify-content: center; gap: 40px; margin-bottom: 40px; flex-wrap: wrap; }
+        .links a { color: #fff; text-decoration: none; font-weight: 700; font-size: 0.9rem; letter-spacing: 1px; border-bottom: 1px solid transparent; }
+        .links a:hover { color: var(--gold); border-color: var(--gold); }
     </style>
 </head>
 <body>
@@ -71,90 +70,124 @@
 
     <div class="container">
         <header>
-            <span class="badge-premium">Stratégie & Performance</span>
+            <span class="badge-premium">Digital Growth Architect</span>
             <h1>Tokiniaina Michaël</h1>
             <p class="hero-desc">
-                Architecte digital basé à Madagascar. Je combine rigueur technique et créativité pour propulser votre présence en ligne au niveau supérieur.
+                Basé à Madagascar, j'accompagne les marques internationales dans leur conquête digitale. Je fusionne l'ingénierie web, la puissance des algorithmes publicitaires et une production visuelle haut de gamme pour générer une croissance mesurable.
             </p>
             
-            <div class="work-links">
-                <a href="https://drive.google.com/drive/folders/1Wew1dCpIvqizVyB5BcDOTj-Aj30oUy5x?usp=drive_link" class="work-btn" target="_blank">
-                    <i class="fa-solid fa-play"></i> Showreel Vidéos
+            <div class="work-links" style="margin-top: 40px; display: flex; gap: 20px;">
+                <a href="https://drive.google.com/drive/folders/1Wew1dCpIvqizVyB5BcDOTj-Aj30oUy5x?usp=drive_link" class="work-btn" style="padding: 18px 35px; border: 1px solid var(--gold); border-radius: 15px; color: #fff; text-decoration: none; font-weight: 600; display: flex; align-items: center; gap: 12px; background: rgba(212,175,55,0.05);" target="_blank">
+                    <i class="fa-solid fa-play"></i> Visionner mes Réalisations
                 </a>
-                <a href="https://drive.google.com/drive/folders/1lV5lU9wlutyCX9FL7s-3kRV4zxHuQMqj?usp=sharing" class="work-btn" target="_blank">
-                    <i class="fa-solid fa-gem"></i> Réalisations Bodour
+                <a href="https://drive.google.com/drive/folders/1lV5lU9wlutyCX9FL7s-3kRV4zxHuQMqj?usp=sharing" class="work-btn" style="padding: 18px 35px; border: 1px solid #222; border-radius: 15px; color: #fff; text-decoration: none; font-weight: 600; display: flex; align-items: center; gap: 12px;" target="_blank">
+                    <i class="fa-solid fa-gem"></i> Brand Identity: Bodour
                 </a>
             </div>
         </header>
 
+        <!-- Section Stats pour la crédibilité -->
+        <div class="stats-bar">
+            <div class="stat-item"><h3>60+</h3><p>Vidéos / Mois Production</p></div>
+            <div class="stat-item"><h3>100%</h3><p>Design Responsive</p></div>
+            <div class="stat-item"><h3>Top</h3><p>Ciblage Google Ads[cite: 1]</p></div>
+        </div>
+
         <div class="expertise-grid">
             <div class="exp-card">
-                <i class="fa-solid fa-laptop-code"></i>
-                <h3>Conception Web WordPress</h3>
-                <p>Création de sites professionnels via Elementor avec une maîtrise du design responsive, de l'UX et de l'intégration d'IA pour le contenu.</p>
+                <i class="fa-solid fa-code-branch"></i>
+                <h3>Web Engineering</h3>
+                <p>Architecture web avancée pour sites vitrines et e-commerce complexes[cite: 1].</p>
+                <ul>
+                    <li>WordPress & Elementor Pro[cite: 1]</li>
+                    <li>Shopify & TikTok Seller Center[cite: 1]</li>
+                    <li>Vitesse & Performance Mobile[cite: 1]</li>
+                    <li>Intégration d'outils marketing</li>
+                </ul>
             </div>
             <div class="exp-card">
-                <i class="fa-solid fa-magnifying-glass-chart"></i>
-                <h3>Marketing SEA & SEO</h3>
-                <p>Paramétrage précis de campagnes Google Ads (Search/Display) et rédaction de contenus optimisés pour le référencement naturel.</p>
+                <i class="fa-solid fa-chart-line"></i>
+                <h3>Ads & Growth</h3>
+                <p>Stratégies d'acquisition payantes orientées vers le retour sur investissement[cite: 1].</p>
+                <ul>
+                    <li>Campagnes Google Search & Display[cite: 1]</li>
+                    <li>Rédaction SEO haute conversion[cite: 1]</li>
+                    <li>Analyse de données & Tracking[cite: 1]</li>
+                    <li>Optimisation continue du CPC</li>
+                </ul>
             </div>
             <div class="exp-card">
-                <i class="fa-solid fa-users-gear"></i>
-                <h3>Social Media Management</h3>
-                <p>Community Management expert incluant la création de contenus, la veille stratégique et l'utilisation d'outils CRM et LinkedIn Sales Navigator[cite: 1].</p>
+                <i class="fa-solid fa-clapperboard"></i>
+                <h3>Visual Production</h3>
+                <p>Création de contenus vidéos impactants pour engager vos communautés[cite: 1].</p>
+                <ul>
+                    <li>Montage CapCut & After Effects[cite: 1]</li>
+                    <li>Voice-over IA via Eleven Labs[cite: 1]</li>
+                    <li>Stratégie TikTok & Meta Suite[cite: 1]</li>
+                    <li>Copywriting pour réseaux sociaux[cite: 1]</li>
+                </ul>
             </div>
         </div>
 
         <div class="cta-section">
-            <button class="btn-collab" onclick="showPricing()">Consulter mes Tarifs</button>
+            <button class="btn-collab" onclick="showPricing()">Démarrer un Projet</button>
             
             <div id="price-list">
-                <h2 style="font-family: 'Cormorant Garamond'; font-size: 2.5rem; margin-bottom: 40px;">Investissement Partenaire</h2>
+                <h2 style="font-family: 'Cormorant Garamond'; font-size: 3rem; margin-bottom: 50px;">Offres & Partenariat</h2>
                 <div class="price-grid">
                     <div class="p-card">
-                        <h4>Montage Vidéo</h4>
+                        <h4>Video Editing Elite</h4>
                         <div class="price">400€</div>
                         <div class="type">FIXE / MENSUEL</div>
-                        <div class="price-desc">Édition dynamique, sous-titres premium et optimisation de la rétention pour vos réseaux.</div>
+                        <div class="price-desc">
+                            <h5>Inclus :</h5>
+                            <p>Édition dynamique, Sound Design, Sous-titrage premium et 100% de rétention garantie.</p>
+                        </div>
                     </div>
                     <div class="p-card" style="border-color: var(--gold);">
-                        <h4>Site E-commerce</h4>
+                        <h4>E-commerce Master</h4>
                         <div class="price">450€</div>
                         <div class="type">NÉGOCIABLE / PROJET</div>
-                        <div class="price-desc">Boutique complète (Shopify/WooCommerce) livrée clé en main et optimisée pour la vente[cite: 1].</div>
+                        <div class="price-desc">
+                            <h5>Inclus :</h5>
+                            <p>Boutique clé en main, configuration TikTok Shop, SEO intégré et design UX haut de gamme[cite: 1].</p>
+                        </div>
                     </div>
                     <div class="p-card">
-                        <h4>Community Management</h4>
+                        <h4>Brand Management</h4>
                         <div class="price">200€</div>
                         <div class="type">FIXE / MENSUEL</div>
-                        <div class="price-desc">Planification, création de posts et gestion quotidienne de votre image de marque[cite: 1].</div>
+                        <div class="price-desc">
+                            <h5>Inclus :</h5>
+                            <p>Community Management complet, publication stratégique et animation de communauté[cite: 1].</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
 
         <footer>
-            <p class="thanks-note">Merci d'avoir pris le temps de visiter mon portfolio. J'ai hâte de transformer vos idées en succès digitaux.</p>
+            <p class="thanks-note">"Transformer une vision digitale en un succès concret est ma mission quotidienne."</p>
             <div class="links">
-                <a href="https://wa.me/261376520724">WhatsApp</a>
-                <a href="mailto:tokiniainatovomichael@gmail.com">Email Business</a>
-                <a href="https://drive.google.com/file/d/1j4saLBoAMc1kNlCJmsSURu0SWkZ0T02q/view?usp=sharing">Télécharger mon CV</a>
+                <a href="https://wa.me/261376520724"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+                <a href="mailto:tokiniainatovomichael@gmail.com"><i class="fa-solid fa-envelope"></i> Contact Business</a>
+                <a href="https://drive.google.com/file/d/1j4saLBoAMc1kNlCJmsSURu0SWkZ0T02q/view?usp=sharing">Curriculum Vitae (PDF)</a>
             </div>
-            <p style="font-size: 0.7rem; color: #444; letter-spacing: 4px;">TOKINIANIA MICKAËL | MICKIDROID LAB © 2026</p>
+            <p style="font-size: 0.7rem; color: #333; letter-spacing: 5px; font-weight: 800; margin-top: 20px;">MICHAËL TOKINIAINA | MADAGASCAR © 2026</p>
         </footer>
     </div>
 
     <script>
-        const icons = ['fa-video', 'fa-code', 'fa-chart-line', 'fa-play', 'fa-hashtag'];
+        const icons = ['fa-video', 'fa-code', 'fa-rocket', 'fa-play', 'fa-hashtag', 'fa-chart-pie', 'fa-mobile-screen'];
         const bg = document.getElementById('bgAnimate');
         
-        for (let i = 0; i < 12; i++) {
+        for (let i = 0; i < 18; i++) {
             const icon = document.createElement('i');
             icon.className = `fa-solid ${icons[Math.floor(Math.random() * icons.length)]} floating-icon`;
             icon.style.left = `${Math.random() * 100}vw`;
             icon.style.animationDuration = `${12 + Math.random() * 10}s`;
-            icon.style.animationDelay = `${Math.random() * 5}s`;
-            icon.style.fontSize = `${1.2 + Math.random()}rem`;
+            icon.style.animationDelay = `${Math.random() * 8}s`;
+            icon.style.fontSize = `${1 + Math.random() * 1.5}rem`;
             bg.appendChild(icon);
         }
 
@@ -162,7 +195,7 @@
             const list = document.getElementById('price-list');
             list.classList.toggle('active');
             if (list.classList.contains('active')) {
-                window.scrollBy({ top: 400, behavior: 'smooth' });
+                window.scrollBy({ top: 500, behavior: 'smooth' });
             }
         }
     </script>
