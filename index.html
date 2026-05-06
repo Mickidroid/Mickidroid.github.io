@@ -24,35 +24,43 @@
         h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(3rem, 8vw, 6rem); margin: 0; line-height: 0.85; font-weight: 600; background: linear-gradient(to right, #fff, var(--gold)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .hero-desc { max-width: 800px; font-size: 1.2rem; color: var(--text-muted); margin-top: 40px; font-weight: 300; }
 
+        /* Expertise Grid with Hover Effects */
         .expertise-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; margin-top: 50px; }
-        .exp-card { background: var(--card-bg); padding: 50px; border-radius: 40px; border: 1px solid #1a1a1a; position: relative; overflow: hidden; }
-        .exp-card:hover { border-color: var(--gold); box-shadow: 0 15px 40px var(--gold-glow); transform: translateY(-10px); }
-        .exp-card i { font-size: 3rem; color: var(--gold); margin-bottom: 30px; display: block; }
+        .exp-card { background: var(--card-bg); padding: 50px; border-radius: 40px; border: 1px solid #1a1a1a; position: relative; overflow: hidden; perspective: 1000px; }
+        .exp-card:hover { border-color: var(--gold); box-shadow: 0 15px 40px var(--gold-glow); transform: translateY(-10px) rotateX(2deg); }
+        .exp-card i { font-size: 3rem; color: var(--gold); margin-bottom: 30px; display: block; animation: pulse 3s infinite; }
+        @keyframes pulse { 0% { opacity: 0.7; transform: scale(1); } 50% { opacity: 1; transform: scale(1.1); } 100% { opacity: 0.7; transform: scale(1); } }
+        
         .exp-card h3 { font-size: 1.6rem; margin-bottom: 20px; font-family: 'Cormorant Garamond', serif; }
         .exp-card ul { padding: 0; list-style: none; color: var(--text-muted); font-size: 0.9rem; }
         .exp-card li { margin-bottom: 12px; display: flex; align-items: center; gap: 10px; }
         .exp-card li::before { content: "◈"; color: var(--gold); }
 
-        /* New Why Me Section */
+        /* Why Me Section with Glow */
         .why-me { padding: 100px 0; border-top: 1px solid #111; margin-top: 80px; text-align: center; }
         .benefit-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-top: 50px; }
-        .benefit-card { padding: 30px; border-radius: 20px; background: rgba(255,255,255,0.02); }
-        .benefit-card h4 { color: var(--gold); margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px; }
+        .benefit-card { padding: 40px; border-radius: 25px; background: rgba(255,255,255,0.02); border: 1px solid transparent; transition: 0.6s; }
+        .benefit-card:hover { background: rgba(212, 175, 55, 0.03); border-color: var(--gold); transform: scale(1.05); }
+        .benefit-card h4 { color: var(--gold); margin-bottom: 15px; text-transform: uppercase; letter-spacing: 2px; font-size: 1rem; }
 
+        /* Pricing Section */
         .cta-section { text-align: center; padding: 120px 0; }
         .btn-collab { padding: 25px 80px; background: #fff; color: #000; border-radius: 100px; font-weight: 900; text-transform: uppercase; cursor: pointer; border: none; font-size: 1.1rem; letter-spacing: 2px; }
-        .btn-collab:hover { background: var(--gold); color: #fff; transform: scale(1.05); }
+        .btn-collab:hover { background: var(--gold); color: #fff; transform: scale(1.05); box-shadow: 0 10px 30px var(--gold-glow); }
 
         #price-list { max-height: 0; overflow: hidden; opacity: 0; transition: 1.5s cubic-bezier(0.16, 1, 0.3, 1); }
         #price-list.active { max-height: 2000px; opacity: 1; margin-top: 80px; }
 
         .price-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
         .p-card { background: #080808; border: 1px solid #1a1a1a; padding: 50px; border-radius: 40px; text-align: center; position: relative; overflow: hidden; cursor: pointer; }
+        .p-card:hover { border-color: var(--gold); }
         .price-hover-info { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: var(--gold); color: #000; padding: 40px; display: flex; flex-direction: column; align-items: center; justify-content: center; font-weight: 700; opacity: 0; transform: translateY(100%); transition: 0.5s ease; }
         .p-card:hover .price-hover-info { opacity: 1; transform: translateY(0); }
 
         footer { padding: 100px 0 60px; border-top: 1px solid #111; text-align: center; }
         .thanks-note { max-width: 700px; margin: 0 auto 50px; font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; color: #fff; }
+        .footer-links a { margin: 0 20px; color: #fff; text-decoration: none; font-weight: 700; opacity: 0.7; }
+        .footer-links a:hover { opacity: 1; color: var(--gold); }
     </style>
 </head>
 <body>
@@ -76,50 +84,53 @@
                 <h3>AI & Low-Code Web</h3>
                 <p>Déploiement ultra-rapide de sites web via les meilleurs outils IA et plateformes Low-Code.</p>
                 <ul>
-                    <li>WordPress & Shopify Assistés par IA[cite: 1]</li>
-                    <li>Automatisation de catalogues TikTok[cite: 1]</li>
-                    <li>Design UX généré par Intelligence Artificielle</li>
-                    <li>Intégration d'API et outils de conversion</li>
+                    <li>WordPress & Shopify Assistés par IA</li>
+                    <li>Automatisation de catalogues TikTok</li>
+                    <li>Design UX généré par IA</li>
+                    <li>Vitesse & Performance Mobile</li>
                 </ul>
             </div>
             <div class="exp-card">
                 <i class="fa-solid fa-chart-line"></i>
                 <h3>Performance Marketing</h3>
-                <p>Stratégies d'acquisition pour un trafic qualifié et une visibilité maximale[cite: 1].</p>
+                <p>Stratégies d'acquisition pour un trafic qualifié et une visibilité maximale.</p>
                 <ul>
-                    <li>Campagnes Google Search & Display[cite: 1]</li>
-                    <li>Rédaction SEO haute conversion[cite: 1]</li>
-                    <li>Analyse de données & Tracking[cite: 1]</li>
-                    <li>Optimisation continue du ROI[cite: 1]</li>
+                    <li>Campagnes Google Search & Display</li>
+                    <li>Rédaction SEO haute conversion</li>
+                    <li>Analyse de données & Tracking</li>
+                    <li>Optimisation continue du ROI</li>
                 </ul>
             </div>
             <div class="exp-card">
                 <i class="fa-solid fa-clapperboard"></i>
                 <h3>Visual Production</h3>
-                <p>Création de contenus vidéos impactants pour engager vos communautés[cite: 1].</p>
+                <p>Création de contenus vidéos impactants pour engager vos communautés.</p>
                 <ul>
-                    <li>Montage CapCut & After Effects[cite: 1]</li>
-                    <li>Qualité cinématographique en volume[cite: 1]</li>
-                    <li>Voix-off IA haute fidélité[cite: 1]</li>
-                    <li>Stratégies de contenu viral[cite: 1]</li>
+                    <li>Montage CapCut & After Effects</li>
+                    <li>Qualité cinématographique en volume</li>
+                    <li>Voix-off IA haute fidélité</li>
+                    <li>Stratégies de contenu viral</li>
                 </ul>
             </div>
         </div>
 
         <div class="why-me">
-            <h2 style="font-family: 'Cormorant Garamond'; font-size: 3rem;">Pourquoi collaborer avec moi ?</h2>
+            <h2 style="font-family: 'Cormorant Garamond'; font-size: 3rem;">Pourquoi me choisir ?</h2>
             <div class="benefit-grid">
                 <div class="benefit-card">
+                    <i class="fa-solid fa-bolt" style="color: var(--gold); font-size: 1.5rem; margin-bottom: 20px;"></i>
                     <h4>Vitesse IA</h4>
-                    <p>Grâce au Low-Code et à l'IA, vos projets sont livrés 2x plus vite sans compromis sur la qualité[cite: 1].</p>
+                    <p>Vos projets livrés en un temps record grâce à la puissance du Low-Code et de l'IA.</p>
                 </div>
                 <div class="benefit-card">
-                    <h4>Expertise ROI</h4>
-                    <p>Chaque action est pensée pour générer des ventes et augmenter votre visibilité digitale[cite: 1].</p>
+                    <i class="fa-solid fa-bullseye" style="color: var(--gold); font-size: 1.5rem; margin-bottom: 20px;"></i>
+                    <h4>Focus Résultats</h4>
+                    <p>Chaque pixel et chaque ligne de code est optimisé pour votre retour sur investissement.</p>
                 </div>
                 <div class="benefit-card">
-                    <h4>Vision 360°</h4>
-                    <p>Je gère tout : du site web au montage vidéo publicitaire jusqu'à la stratégie média[cite: 1].</p>
+                    <i class="fa-solid fa-infinity" style="color: var(--gold); font-size: 1.5rem; margin-bottom: 20px;"></i>
+                    <h4>Service 360°</h4>
+                    <p>Un seul interlocuteur pour votre site, vos publicités et votre production vidéo.</p>
                 </div>
             </div>
         </div>
@@ -131,38 +142,38 @@
                     <div class="p-card">
                         <h4>Production Vidéo</h4>
                         <div style="font-size: 2.5rem; color: var(--gold); font-weight: 800; margin: 20px 0;">400€</div>
-                        <p style="color: var(--text-muted);">Mensuel / Qualité & Volume[cite: 1]</p>
-                        <div class="price-hover-info"><p>Édition dynamique, Sound Design, et production de vidéos haute qualité en volume[cite: 1].</p></div>
+                        <p style="color: var(--text-muted);">Mensuel / Qualité & Volume</p>
+                        <div class="price-hover-info"><p>Édition dynamique, Sound Design, et production de vidéos haute qualité en volume.</p></div>
                     </div>
-                    <div class="p-card" style="border-color: var(--gold);">
+                    <div class="p-card" style="border-color: var(--gold); box-shadow: 0 0 15px var(--gold-glow);">
                         <h4>E-commerce Master</h4>
                         <div style="font-size: 2.5rem; color: var(--gold); font-weight: 800; margin: 20px 0;">450€</div>
-                        <p style="color: var(--text-muted);">Par Projet / Boutique Low-Code[cite: 1]</p>
-                        <div class="price-hover-info"><p>Boutique clé en main, configuration TikTok Shop, SEO intégré et design UX[cite: 1].</p></div>
+                        <p style="color: var(--text-muted);">Par Projet / Boutique Low-Code</p>
+                        <div class="price-hover-info"><p>Boutique clé en main, configuration TikTok Shop, SEO intégré et design UX haut de gamme.</p></div>
                     </div>
                     <div class="p-card">
                         <h4>Brand Management</h4>
                         <div style="font-size: 2.5rem; color: var(--gold); font-weight: 800; margin: 20px 0;">200€</div>
-                        <p style="color: var(--text-muted);">Mensuel / Community[cite: 1]</p>
-                        <div class="price-hover-info"><p>Community Management complet, publication stratégique et animation de communauté[cite: 1].</p></div>
+                        <p style="color: var(--text-muted);">Mensuel / Community Management</p>
+                        <div class="price-hover-info"><p>Gestion complète, publication stratégique et animation de communauté quotidienne.</p></div>
                     </div>
                 </div>
             </div>
         </div>
 
         <footer>
-            <p class="thanks-note">Merci de votre visite. Bâtissons ensemble l'avenir de votre marque[cite: 1].</p>
-            <div style="margin-bottom: 40px;">
-                <a href="https://wa.me/261376520724" style="color: #fff; text-decoration: none; margin: 0 20px;">WhatsApp</a>
-                <a href="mailto:tokiniainatovomichael@gmail.com" style="color: #fff; text-decoration: none; margin: 0 20px;">Contact</a>
-                <a href="https://drive.google.com/file/d/1j4saLBoAMc1kNlCJmsSURu0SWkZ0T02q/view?usp=sharing" style="color: #fff; text-decoration: none; margin: 0 20px;">Mon CV[cite: 1]</a>
+            <p class="thanks-note">Merci de votre visite. Bâtissons ensemble l'avenir de votre marque.</p>
+            <div class="footer-links">
+                <a href="https://wa.me/261376520724">WhatsApp</a>
+                <a href="mailto:tokiniainatovomichael@gmail.com">Contact</a>
+                <a href="https://drive.google.com/file/d/1j4saLBoAMc1kNlCJmsSURu0SWkZ0T02q/view?usp=sharing">Mon CV</a>
             </div>
-            <p style="font-size: 0.7rem; color: #333; letter-spacing: 5px; font-weight: 800;">TOKINIANIA MICKAËL | MICKIDROID LAB © 2026[cite: 1]</p>
+            <p style="font-size: 0.7rem; color: #333; letter-spacing: 5px; margin-top: 40px; font-weight: 800;">TOKINIANIA MICKAËL | MICKIDROID LAB © 2026</p>
         </footer>
     </div>
 
     <script>
-        const icons = ['fa-microchip', 'fa-code', 'fa-rocket', 'fa-play', 'fa-chart-pie'];
+        const icons = ['fa-microchip', 'fa-bolt', 'fa-rocket', 'fa-play', 'fa-chart-pie'];
         const bg = document.getElementById('bgAnimate');
         for (let i = 0; i < 20; i++) {
             const icon = document.createElement('i');
