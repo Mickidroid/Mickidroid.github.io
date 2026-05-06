@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Michaël | Digital Architect & Growth Engineer</title>
+    <title>Michaël | AI Low-Code Architect & Growth Engineer</title>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600&family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -11,7 +11,6 @@
         * { box-sizing: border-box; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
         body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--dark-bg); color: #fff; margin: 0; line-height: 1.6; overflow-x: hidden; }
         
-        /* Background Icons */
         .bg-animate { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; overflow: hidden; pointer-events: none; }
         .floating-icon { position: absolute; color: rgba(212, 175, 55, 0.04); animation: float 18s infinite linear; }
         @keyframes float { 0% { transform: translateY(110vh) rotate(0deg); opacity: 0; } 100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; } }
@@ -25,7 +24,6 @@
         h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(3rem, 8vw, 6rem); margin: 0; line-height: 0.85; font-weight: 600; background: linear-gradient(to right, #fff, var(--gold)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .hero-desc { max-width: 800px; font-size: 1.2rem; color: var(--text-muted); margin-top: 40px; font-weight: 300; }
 
-        /* Expertise Grid */
         .expertise-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; margin-top: 50px; }
         .exp-card { background: var(--card-bg); padding: 50px; border-radius: 40px; border: 1px solid #1a1a1a; position: relative; overflow: hidden; }
         .exp-card:hover { border-color: var(--gold); box-shadow: 0 15px 40px var(--gold-glow); transform: translateY(-10px); }
@@ -35,157 +33,149 @@
         .exp-card li { margin-bottom: 12px; display: flex; align-items: center; gap: 10px; }
         .exp-card li::before { content: "◈"; color: var(--gold); }
 
-        /* Pricing Section with Hover Info */
+        /* New Why Me Section */
+        .why-me { padding: 100px 0; border-top: 1px solid #111; margin-top: 80px; text-align: center; }
+        .benefit-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-top: 50px; }
+        .benefit-card { padding: 30px; border-radius: 20px; background: rgba(255,255,255,0.02); }
+        .benefit-card h4 { color: var(--gold); margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px; }
+
         .cta-section { text-align: center; padding: 120px 0; }
         .btn-collab { padding: 25px 80px; background: #fff; color: #000; border-radius: 100px; font-weight: 900; text-transform: uppercase; cursor: pointer; border: none; font-size: 1.1rem; letter-spacing: 2px; }
-        .btn-collab:hover { background: var(--gold); color: #fff; transform: scale(1.05); box-shadow: 0 10px 30px var(--gold-glow); }
+        .btn-collab:hover { background: var(--gold); color: #fff; transform: scale(1.05); }
 
         #price-list { max-height: 0; overflow: hidden; opacity: 0; transition: 1.5s cubic-bezier(0.16, 1, 0.3, 1); }
         #price-list.active { max-height: 2000px; opacity: 1; margin-top: 80px; }
 
         .price-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
         .p-card { background: #080808; border: 1px solid #1a1a1a; padding: 50px; border-radius: 40px; text-align: center; position: relative; overflow: hidden; cursor: pointer; }
-        .p-card:hover { border-color: var(--gold); }
-
-        /* THE HOVER INFO EFFECT */
-        .price-hover-info { 
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%; 
-            background: var(--gold); color: #000; padding: 40px; 
-            display: flex; flex-direction: column; align-items: center; justify-content: center; 
-            font-weight: 700; font-size: 0.9rem; opacity: 0; 
-            transform: translateY(100%); transition: 0.5s ease; 
-        }
+        .price-hover-info { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: var(--gold); color: #000; padding: 40px; display: flex; flex-direction: column; align-items: center; justify-content: center; font-weight: 700; opacity: 0; transform: translateY(100%); transition: 0.5s ease; }
         .p-card:hover .price-hover-info { opacity: 1; transform: translateY(0); }
 
         footer { padding: 100px 0 60px; border-top: 1px solid #111; text-align: center; }
         .thanks-note { max-width: 700px; margin: 0 auto 50px; font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; color: #fff; }
-        .footer-links a { margin: 0 20px; color: #fff; text-decoration: none; font-weight: 700; opacity: 0.7; }
-        .footer-links a:hover { opacity: 1; color: var(--gold); }
     </style>
 </head>
 <body>
-
     <div class="bg-animate" id="bgAnimate"></div>
-
     <div class="container">
         <header>
-            <span class="badge-premium">Digital Architect | Madagascar</span>
+            <span class="badge-premium">AI Low-Code Specialist | Growth</span>
             <h1>Tokiniaina Michaël</h1>
             <p class="hero-desc">
-                Architecte digital spécialisé dans la croissance de marque. Je fusionne l'ingénierie web, la performance marketing et la production vidéo haute performance pour propulser votre business au niveau supérieur.
+                Je propulse les marques via l'intelligence artificielle et le développement Low-Code. Je fusionne rapidité d'exécution, performance marketing et production visuelle pour transformer vos idées en succès mesurables.
             </p>
-            
             <div style="margin-top: 40px; display: flex; gap: 20px; flex-wrap: wrap;">
-                <a href="https://drive.google.com/drive/folders/1Wew1dCpIvqizVyB5BcDOTj-Aj30oUy5x?usp=drive_link" class="work-btn" style="padding: 18px 35px; border: 1px solid var(--gold); border-radius: 15px; color: #fff; text-decoration: none; font-weight: 700; background: rgba(212, 175, 55, 0.05); display: flex; align-items: center; gap: 10px;" target="_blank">
-                    <i class="fa-solid fa-play"></i> Visionner mes Vidéos
-                </a>
-                <a href="https://drive.google.com/drive/folders/1lV5lU9wlutyCX9FL7s-3kRV4zxHuQMqj?usp=sharing" class="work-btn" style="padding: 18px 35px; border: 1px solid #222; border-radius: 15px; color: #fff; text-decoration: none; font-weight: 700; display: flex; align-items: center; gap: 10px;" target="_blank">
-                    <i class="fa-solid fa-gem"></i> Brand Identity: Bodour
-                </a>
+                <a href="https://drive.google.com/drive/folders/1Wew1dCpIvqizVyB5BcDOTj-Aj30oUy5x?usp=drive_link" class="work-btn" style="padding: 18px 35px; border: 1px solid var(--gold); border-radius: 15px; color: #fff; text-decoration: none; font-weight: 700; background: rgba(212, 175, 55, 0.05);" target="_blank">Visionner mes Vidéos</a>
+                <a href="https://drive.google.com/drive/folders/1lV5lU9wlutyCX9FL7s-3kRV4zxHuQMqj?usp=sharing" class="work-btn" style="padding: 18px 35px; border: 1px solid #222; border-radius: 15px; color: #fff; text-decoration: none; font-weight: 700;" target="_blank">Brand Identity: Bodour</a>
             </div>
         </header>
 
         <div class="expertise-grid">
             <div class="exp-card">
-                <i class="fa-solid fa-code"></i>
-                <h3>Web Engineering</h3>
-                <p>Développement de sites WordPress et Shopify optimisés pour la conversion.</p>
+                <i class="fa-solid fa-microchip"></i>
+                <h3>AI & Low-Code Web</h3>
+                <p>Déploiement ultra-rapide de sites web via les meilleurs outils IA et plateformes Low-Code.</p>
                 <ul>
-                    <li>Design Responsive & UX Premium</li>
-                    <li>Maîtrise d'Elementor Pro</li>
-                    <li>Configuration TikTok Seller Center</li>
-                    <li>Vitesse de chargement optimisée</li>
+                    <li>WordPress & Shopify Assistés par IA[cite: 1]</li>
+                    <li>Automatisation de catalogues TikTok[cite: 1]</li>
+                    <li>Design UX généré par Intelligence Artificielle</li>
+                    <li>Intégration d'API et outils de conversion</li>
                 </ul>
             </div>
-
             <div class="exp-card">
                 <i class="fa-solid fa-chart-line"></i>
                 <h3>Performance Marketing</h3>
-                <p>Stratégies d'acquisition pour un trafic qualifié et une visibilité maximale.</p>
+                <p>Stratégies d'acquisition pour un trafic qualifié et une visibilité maximale[cite: 1].</p>
                 <ul>
-                    <li>Campagnes Google Search & Display</li>
-                    <li>Rédaction SEO haute conversion</li>
-                    <li>Analyse de données & Tracking</li>
-                    <li>Optimisation continue du ROI</li>
+                    <li>Campagnes Google Search & Display[cite: 1]</li>
+                    <li>Rédaction SEO haute conversion[cite: 1]</li>
+                    <li>Analyse de données & Tracking[cite: 1]</li>
+                    <li>Optimisation continue du ROI[cite: 1]</li>
                 </ul>
             </div>
-
             <div class="exp-card">
                 <i class="fa-solid fa-clapperboard"></i>
                 <h3>Visual Production</h3>
-                <p>Création de contenus vidéos impactants pour engager vos communautés.</p>
+                <p>Création de contenus vidéos impactants pour engager vos communautés[cite: 1].</p>
                 <ul>
-                    <li>Montage CapCut & After Effects</li>
-                    <li>Qualité cinématographique en volume</li>
-                    <li>Voix-off IA haute fidélité</li>
-                    <li>Stratégies de contenu viral</li>
+                    <li>Montage CapCut & After Effects[cite: 1]</li>
+                    <li>Qualité cinématographique en volume[cite: 1]</li>
+                    <li>Voix-off IA haute fidélité[cite: 1]</li>
+                    <li>Stratégies de contenu viral[cite: 1]</li>
                 </ul>
             </div>
         </div>
 
+        <div class="why-me">
+            <h2 style="font-family: 'Cormorant Garamond'; font-size: 3rem;">Pourquoi collaborer avec moi ?</h2>
+            <div class="benefit-grid">
+                <div class="benefit-card">
+                    <h4>Vitesse IA</h4>
+                    <p>Grâce au Low-Code et à l'IA, vos projets sont livrés 2x plus vite sans compromis sur la qualité[cite: 1].</p>
+                </div>
+                <div class="benefit-card">
+                    <h4>Expertise ROI</h4>
+                    <p>Chaque action est pensée pour générer des ventes et augmenter votre visibilité digitale[cite: 1].</p>
+                </div>
+                <div class="benefit-card">
+                    <h4>Vision 360°</h4>
+                    <p>Je gère tout : du site web au montage vidéo publicitaire jusqu'à la stratégie média[cite: 1].</p>
+                </div>
+            </div>
+        </div>
+
         <div class="cta-section">
-            <button class="btn-collab" onclick="showPricing()">Consulter mes Solutions</button>
+            <button class="btn-collab" onclick="showPricing()">Consulter mes Tarifs</button>
             <div id="price-list">
-                <h2 style="font-family: 'Cormorant Garamond'; font-size: 3rem; margin-bottom: 50px;">Investissement Partenaire</h2>
                 <div class="price-grid">
                     <div class="p-card">
                         <h4>Production Vidéo</h4>
                         <div style="font-size: 2.5rem; color: var(--gold); font-weight: 800; margin: 20px 0;">400€</div>
-                        <p style="color: var(--text-muted);">Mensuel / Qualité & Volume</p>
-                        <div class="price-hover-info">
-                            <p>Édition dynamique, Sound Design, et production de vidéos haute qualité en volume pour vos réseaux.</p>
-                        </div>
+                        <p style="color: var(--text-muted);">Mensuel / Qualité & Volume[cite: 1]</p>
+                        <div class="price-hover-info"><p>Édition dynamique, Sound Design, et production de vidéos haute qualité en volume[cite: 1].</p></div>
                     </div>
-                    <div class="p-card" style="border-color: var(--gold); box-shadow: 0 0 20px var(--gold-glow);">
+                    <div class="p-card" style="border-color: var(--gold);">
                         <h4>E-commerce Master</h4>
                         <div style="font-size: 2.5rem; color: var(--gold); font-weight: 800; margin: 20px 0;">450€</div>
-                        <p style="color: var(--text-muted);">Par Projet / Boutique clé en main</p>
-                        <div class="price-hover-info">
-                            <p>Boutique clé en main, configuration TikTok Shop, SEO intégré et design UX haut de gamme.</p>
-                        </div>
+                        <p style="color: var(--text-muted);">Par Projet / Boutique Low-Code[cite: 1]</p>
+                        <div class="price-hover-info"><p>Boutique clé en main, configuration TikTok Shop, SEO intégré et design UX[cite: 1].</p></div>
                     </div>
                     <div class="p-card">
                         <h4>Brand Management</h4>
                         <div style="font-size: 2.5rem; color: var(--gold); font-weight: 800; margin: 20px 0;">200€</div>
-                        <p style="color: var(--text-muted);">Mensuel / Gestion Réseaux Sociaux</p>
-                        <div class="price-hover-info">
-                            <p>Community Management complet, publication stratégique et animation de communauté quotidienne.</p>
-                        </div>
+                        <p style="color: var(--text-muted);">Mensuel / Community[cite: 1]</p>
+                        <div class="price-hover-info"><p>Community Management complet, publication stratégique et animation de communauté[cite: 1].</p></div>
                     </div>
                 </div>
             </div>
         </div>
 
         <footer>
-            <p class="thanks-note">Merci de votre visite. Bâtissons ensemble l'avenir de votre marque.</p>
-            <div class="footer-links">
-                <a href="https://wa.me/261376520724"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
-                <a href="mailto:tokiniainatovomichael@gmail.com"><i class="fa-solid fa-envelope"></i> Contact</a>
-                <a href="https://drive.google.com/file/d/1j4saLBoAMc1kNlCJmsSURu0SWkZ0T02q/view?usp=sharing"><i class="fa-solid fa-file-pdf"></i> Mon CV</a>
+            <p class="thanks-note">Merci de votre visite. Bâtissons ensemble l'avenir de votre marque[cite: 1].</p>
+            <div style="margin-bottom: 40px;">
+                <a href="https://wa.me/261376520724" style="color: #fff; text-decoration: none; margin: 0 20px;">WhatsApp</a>
+                <a href="mailto:tokiniainatovomichael@gmail.com" style="color: #fff; text-decoration: none; margin: 0 20px;">Contact</a>
+                <a href="https://drive.google.com/file/d/1j4saLBoAMc1kNlCJmsSURu0SWkZ0T02q/view?usp=sharing" style="color: #fff; text-decoration: none; margin: 0 20px;">Mon CV[cite: 1]</a>
             </div>
-            <p style="font-size: 0.7rem; color: #333; letter-spacing: 5px; margin-top: 40px; font-weight: 800;">TOKINIANIA MICKAËL | MICKIDROID LAB © 2026</p>
+            <p style="font-size: 0.7rem; color: #333; letter-spacing: 5px; font-weight: 800;">TOKINIANIA MICKAËL | MICKIDROID LAB © 2026[cite: 1]</p>
         </footer>
     </div>
 
     <script>
-        const icons = ['fa-video', 'fa-code', 'fa-rocket', 'fa-play', 'fa-hashtag'];
+        const icons = ['fa-microchip', 'fa-code', 'fa-rocket', 'fa-play', 'fa-chart-pie'];
         const bg = document.getElementById('bgAnimate');
         for (let i = 0; i < 20; i++) {
             const icon = document.createElement('i');
             icon.className = `fa-solid ${icons[Math.floor(Math.random() * icons.length)]} floating-icon`;
             icon.style.left = `${Math.random() * 100}vw`;
             icon.style.animationDuration = `${15 + Math.random() * 10}s`;
-            icon.style.animationDelay = `${Math.random() * 5}s`;
             icon.style.fontSize = `${1 + Math.random()}rem`;
             bg.appendChild(icon);
         }
-
         function showPricing() {
             const list = document.getElementById('price-list');
             list.classList.toggle('active');
-            if (list.classList.contains('active')) {
-                window.scrollBy({ top: 500, behavior: 'smooth' });
-            }
+            if (list.classList.contains('active')) { window.scrollBy({ top: 500, behavior: 'smooth' }); }
         }
     </script>
 </body>
