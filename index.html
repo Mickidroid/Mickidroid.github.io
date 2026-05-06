@@ -11,14 +11,13 @@
         * { box-sizing: border-box; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
         body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--dark-bg); color: #fff; margin: 0; line-height: 1.6; overflow-x: hidden; }
         
-        /* Background Animated Icons */
+        /* Background Icons */
         .bg-animate { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; overflow: hidden; pointer-events: none; }
         .floating-icon { position: absolute; color: rgba(212, 175, 55, 0.04); animation: float 18s infinite linear; }
-        @keyframes float { 0% { transform: translateY(110vh) rotate(0deg); opacity: 0; } 10% { opacity: 1; } 100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; } }
+        @keyframes float { 0% { transform: translateY(110vh) rotate(0deg); opacity: 0; } 100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; } }
 
         .container { max-width: 1200px; margin: 0 auto; padding: 0 30px; position: relative; z-index: 1; }
 
-        /* Header Section */
         header { padding: 140px 0 60px; opacity: 0; animation: fadeIn 1.2s forwards; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
         
@@ -26,50 +25,42 @@
         h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(3rem, 8vw, 6rem); margin: 0; line-height: 0.85; font-weight: 600; background: linear-gradient(to right, #fff, var(--gold)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .hero-desc { max-width: 800px; font-size: 1.2rem; color: var(--text-muted); margin-top: 40px; font-weight: 300; }
 
-        /* Expertise Grid & Hover Animations */
+        /* Expertise Grid */
         .expertise-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; margin-top: 50px; }
-        .exp-card { background: var(--card-bg); padding: 50px; border-radius: 40px; border: 1px solid #1a1a1a; position: relative; overflow: hidden; cursor: default; }
-        
-        /* EFFET AU TOUCHER / SURVOL */
-        .exp-card:hover { 
-            border-color: var(--gold); 
-            box-shadow: 0 15px 40px var(--gold-glow); 
-            transform: translateY(-12px) scale(1.02);
-            background: #141414;
-        }
-        .exp-card i { font-size: 3rem; color: var(--gold); margin-bottom: 30px; display: block; transition: transform 0.6s; }
-        .exp-card:hover i { transform: rotateY(360deg); }
-        
+        .exp-card { background: var(--card-bg); padding: 50px; border-radius: 40px; border: 1px solid #1a1a1a; position: relative; overflow: hidden; }
+        .exp-card:hover { border-color: var(--gold); box-shadow: 0 15px 40px var(--gold-glow); transform: translateY(-10px); }
+        .exp-card i { font-size: 3rem; color: var(--gold); margin-bottom: 30px; display: block; }
         .exp-card h3 { font-size: 1.6rem; margin-bottom: 20px; font-family: 'Cormorant Garamond', serif; }
         .exp-card ul { padding: 0; list-style: none; color: var(--text-muted); font-size: 0.9rem; }
         .exp-card li { margin-bottom: 12px; display: flex; align-items: center; gap: 10px; }
         .exp-card li::before { content: "◈"; color: var(--gold); }
 
-        /* Process Section Animations */
-        .process-section { padding: 80px 0; border-top: 1px solid #111; margin-top: 80px; }
-        .process-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; }
-        .step { text-align: center; padding: 20px; border-radius: 20px; }
-        .step:hover { background: rgba(255,255,255,0.02); }
-        .step-num { font-size: 3.5rem; font-family: 'Cormorant Garamond', serif; color: rgba(212, 175, 55, 0.1); font-weight: 800; display: block; margin-bottom: -30px; transition: color 0.4s; }
-        .step:hover .step-num { color: var(--gold); opacity: 0.3; }
-
-        /* Pricing & Interactive Buttons */
+        /* Pricing Section with Hover Info */
         .cta-section { text-align: center; padding: 120px 0; }
-        .btn-collab { padding: 25px 80px; background: #fff; color: #000; border-radius: 100px; font-weight: 900; text-transform: uppercase; cursor: pointer; border: none; font-size: 1.1rem; letter-spacing: 2px; position: relative; }
-        .btn-collab:hover { background: var(--gold); color: #fff; transform: scale(1.08); box-shadow: 0 10px 30px var(--gold-glow); }
+        .btn-collab { padding: 25px 80px; background: #fff; color: #000; border-radius: 100px; font-weight: 900; text-transform: uppercase; cursor: pointer; border: none; font-size: 1.1rem; letter-spacing: 2px; }
+        .btn-collab:hover { background: var(--gold); color: #fff; transform: scale(1.05); box-shadow: 0 10px 30px var(--gold-glow); }
 
         #price-list { max-height: 0; overflow: hidden; opacity: 0; transition: 1.5s cubic-bezier(0.16, 1, 0.3, 1); }
         #price-list.active { max-height: 2000px; opacity: 1; margin-top: 80px; }
 
         .price-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-        .p-card { background: #080808; border: 1px solid #1a1a1a; padding: 50px; border-radius: 40px; text-align: center; position: relative; overflow: hidden; }
-        .p-card:hover { border-color: var(--gold); transform: scale(1.05); }
+        .p-card { background: #080808; border: 1px solid #1a1a1a; padding: 50px; border-radius: 40px; text-align: center; position: relative; overflow: hidden; cursor: pointer; }
+        .p-card:hover { border-color: var(--gold); }
 
-        /* Footer */
+        /* THE HOVER INFO EFFECT */
+        .price-hover-info { 
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%; 
+            background: var(--gold); color: #000; padding: 40px; 
+            display: flex; flex-direction: column; align-items: center; justify-content: center; 
+            font-weight: 700; font-size: 0.9rem; opacity: 0; 
+            transform: translateY(100%); transition: 0.5s ease; 
+        }
+        .p-card:hover .price-hover-info { opacity: 1; transform: translateY(0); }
+
         footer { padding: 100px 0 60px; border-top: 1px solid #111; text-align: center; }
-        .thanks-note { max-width: 700px; margin: 0 auto 50px; font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; color: #fff; line-height: 1.2; }
+        .thanks-note { max-width: 700px; margin: 0 auto 50px; font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; color: #fff; }
         .footer-links a { margin: 0 20px; color: #fff; text-decoration: none; font-weight: 700; opacity: 0.7; }
-        .footer-links a:hover { opacity: 1; color: var(--gold); text-shadow: 0 0 10px var(--gold-glow); }
+        .footer-links a:hover { opacity: 1; color: var(--gold); }
     </style>
 </head>
 <body>
@@ -81,14 +72,14 @@
             <span class="badge-premium">Digital Architect | Madagascar</span>
             <h1>Tokiniaina Michaël</h1>
             <p class="hero-desc">
-                Expert digital spécialisé dans la croissance de marque. Je fusionne l'ingénierie web, la performance marketing et la production vidéo haute performance pour propulser votre business au niveau supérieur.
+                Architecte digital spécialisé dans la croissance de marque. Je fusionne l'ingénierie web, la performance marketing et la production vidéo haute performance pour propulser votre business au niveau supérieur.
             </p>
             
-            <div style="margin-top: 45px; display: flex; gap: 20px; flex-wrap: wrap;">
-                <a href="https://drive.google.com/drive/folders/1Wew1dCpIvqizVyB5BcDOTj-Aj30oUy5x?usp=drive_link" class="work-btn" style="padding: 20px 40px; border: 1px solid var(--gold); border-radius: 15px; color: #fff; text-decoration: none; font-weight: 700; background: rgba(212, 175, 55, 0.05); display: flex; align-items: center; gap: 10px;" target="_blank">
+            <div style="margin-top: 40px; display: flex; gap: 20px; flex-wrap: wrap;">
+                <a href="https://drive.google.com/drive/folders/1Wew1dCpIvqizVyB5BcDOTj-Aj30oUy5x?usp=drive_link" class="work-btn" style="padding: 18px 35px; border: 1px solid var(--gold); border-radius: 15px; color: #fff; text-decoration: none; font-weight: 700; background: rgba(212, 175, 55, 0.05); display: flex; align-items: center; gap: 10px;" target="_blank">
                     <i class="fa-solid fa-play"></i> Visionner mes Vidéos
                 </a>
-                <a href="https://drive.google.com/drive/folders/1lV5lU9wlutyCX9FL7s-3kRV4zxHuQMqj?usp=sharing" class="work-btn" style="padding: 20px 40px; border: 1px solid #222; border-radius: 15px; color: #fff; text-decoration: none; font-weight: 700; display: flex; align-items: center; gap: 10px;" target="_blank">
+                <a href="https://drive.google.com/drive/folders/1lV5lU9wlutyCX9FL7s-3kRV4zxHuQMqj?usp=sharing" class="work-btn" style="padding: 18px 35px; border: 1px solid #222; border-radius: 15px; color: #fff; text-decoration: none; font-weight: 700; display: flex; align-items: center; gap: 10px;" target="_blank">
                     <i class="fa-solid fa-gem"></i> Brand Identity: Bodour
                 </a>
             </div>
@@ -125,31 +116,10 @@
                 <p>Création de contenus vidéos impactants pour engager vos communautés.</p>
                 <ul>
                     <li>Montage CapCut & After Effects</li>
-                    <li>Volume & Qualité cinématographique</li>
+                    <li>Qualité cinématographique en volume</li>
                     <li>Voix-off IA haute fidélité</li>
                     <li>Stratégies de contenu viral</li>
                 </ul>
-            </div>
-        </div>
-
-        <div class="process-section">
-            <h2 style="text-align:center; font-family: 'Cormorant Garamond'; font-size: 3rem; margin-bottom: 60px;">Ma Méthode de Travail</h2>
-            <div class="process-grid">
-                <div class="step">
-                    <span class="step-num">01</span>
-                    <h3>Analyse & Audit</h3>
-                    <p style="color: var(--text-muted); font-size: 0.9rem;">Étude de votre marché pour identifier les leviers de croissance.</p>
-                </div>
-                <div class="step">
-                    <span class="step-num">02</span>
-                    <h3>Développement</h3>
-                    <p style="color: var(--text-muted); font-size: 0.9rem;">Conception technique et création des assets publicitaires.</p>
-                </div>
-                <div class="step">
-                    <span class="step-num">03</span>
-                    <h3>Optimisation</h3>
-                    <p style="color: var(--text-muted); font-size: 0.9rem;">Lancement et ajustements basés sur les données réelles.</p>
-                </div>
             </div>
         </div>
 
@@ -162,16 +132,25 @@
                         <h4>Production Vidéo</h4>
                         <div style="font-size: 2.5rem; color: var(--gold); font-weight: 800; margin: 20px 0;">400€</div>
                         <p style="color: var(--text-muted);">Mensuel / Qualité & Volume</p>
+                        <div class="price-hover-info">
+                            <p>Édition dynamique, Sound Design, et production de vidéos haute qualité en volume pour vos réseaux.</p>
+                        </div>
                     </div>
                     <div class="p-card" style="border-color: var(--gold); box-shadow: 0 0 20px var(--gold-glow);">
                         <h4>E-commerce Master</h4>
                         <div style="font-size: 2.5rem; color: var(--gold); font-weight: 800; margin: 20px 0;">450€</div>
                         <p style="color: var(--text-muted);">Par Projet / Boutique clé en main</p>
+                        <div class="price-hover-info">
+                            <p>Boutique clé en main, configuration TikTok Shop, SEO intégré et design UX haut de gamme.</p>
+                        </div>
                     </div>
                     <div class="p-card">
                         <h4>Brand Management</h4>
                         <div style="font-size: 2.5rem; color: var(--gold); font-weight: 800; margin: 20px 0;">200€</div>
                         <p style="color: var(--text-muted);">Mensuel / Gestion Réseaux Sociaux</p>
+                        <div class="price-hover-info">
+                            <p>Community Management complet, publication stratégique et animation de communauté quotidienne.</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -181,7 +160,7 @@
             <p class="thanks-note">Merci de votre visite. Bâtissons ensemble l'avenir de votre marque.</p>
             <div class="footer-links">
                 <a href="https://wa.me/261376520724"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
-                <a href="mailto:tokiniainatovomichael@gmail.com"><i class="fa-solid fa-envelope"></i> Contact Business</a>
+                <a href="mailto:tokiniainatovomichael@gmail.com"><i class="fa-solid fa-envelope"></i> Contact</a>
                 <a href="https://drive.google.com/file/d/1j4saLBoAMc1kNlCJmsSURu0SWkZ0T02q/view?usp=sharing"><i class="fa-solid fa-file-pdf"></i> Mon CV</a>
             </div>
             <p style="font-size: 0.7rem; color: #333; letter-spacing: 5px; margin-top: 40px; font-weight: 800;">TOKINIANIA MICKAËL | MICKIDROID LAB © 2026</p>
@@ -189,7 +168,7 @@
     </div>
 
     <script>
-        const icons = ['fa-video', 'fa-code', 'fa-rocket', 'fa-play', 'fa-hashtag', 'fa-chart-pie'];
+        const icons = ['fa-video', 'fa-code', 'fa-rocket', 'fa-play', 'fa-hashtag'];
         const bg = document.getElementById('bgAnimate');
         for (let i = 0; i < 20; i++) {
             const icon = document.createElement('i');
