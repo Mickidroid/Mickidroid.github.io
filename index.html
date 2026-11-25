@@ -1,193 +1,434 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Michaël | AI Low-Code Architect & Growth Engineer</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600&family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        :root { --gold: #d4af37; --gold-glow: rgba(212, 175, 55, 0.4); --dark-bg: #050505; --card-bg: #0f0f0f; --text-muted: #888; }
-        * { box-sizing: border-box; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
-        body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--dark-bg); color: #fff; margin: 0; line-height: 1.6; overflow-x: hidden; }
-        
-        .bg-animate { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; overflow: hidden; pointer-events: none; }
-        .floating-icon { position: absolute; color: rgba(212, 175, 55, 0.04); animation: float 18s infinite linear; }
-        @keyframes float { 0% { transform: translateY(110vh) rotate(0deg); opacity: 0; } 100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; } }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tokiniaina Michaël | Monteur Vidéo & Créateur IA</title>
+  <link rel="preconnect" href="https://googleapis.com">
+  <link rel="preconnect" href="https://gstatic.com" crossorigin>
+  <link href="https://googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: #09090b;
+      --bg-card: #121216;
+      --border-color: rgba(255, 255, 255, 0.08);
+      --text-main: #f4f4f5;
+      --text-muted: #a1a1aa;
+      --accent: #6366f1;
+      --accent-hover: #4f46e5;
+      --whatsapp: #22c55e;
+      --whatsapp-hover: #16a34a;
+    }
 
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 30px; position: relative; z-index: 1; }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      scroll-behavior: smooth;
+    }
 
-        header { padding: 140px 0 60px; opacity: 0; animation: fadeIn 1.2s forwards; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
-        
-        .badge-premium { display: inline-block; padding: 8px 20px; border: 1px solid var(--gold); color: var(--gold); border-radius: 50px; font-size: 0.7rem; font-weight: 800; letter-spacing: 3px; margin-bottom: 25px; text-transform: uppercase; background: rgba(212, 175, 55, 0.05); }
-        h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(3rem, 8vw, 6rem); margin: 0; line-height: 0.85; font-weight: 600; background: linear-gradient(to right, #fff, var(--gold)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .hero-desc { max-width: 800px; font-size: 1.2rem; color: var(--text-muted); margin-top: 40px; font-weight: 300; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
 
-        /* Expertise Grid with Hover Effects */
-        .expertise-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; margin-top: 50px; }
-        .exp-card { background: var(--card-bg); padding: 50px; border-radius: 40px; border: 1px solid #1a1a1a; position: relative; overflow: hidden; perspective: 1000px; }
-        .exp-card:hover { border-color: var(--gold); box-shadow: 0 15px 40px var(--gold-glow); transform: translateY(-10px) rotateX(2deg); }
-        .exp-card i { font-size: 3rem; color: var(--gold); margin-bottom: 30px; display: block; animation: pulse 3s infinite; }
-        @keyframes pulse { 0% { opacity: 0.7; transform: scale(1); } 50% { opacity: 1; transform: scale(1.1); } 100% { opacity: 0.7; transform: scale(1); } }
-        
-        .exp-card h3 { font-size: 1.6rem; margin-bottom: 20px; font-family: 'Cormorant Garamond', serif; }
-        .exp-card ul { padding: 0; list-style: none; color: var(--text-muted); font-size: 0.9rem; }
-        .exp-card li { margin-bottom: 12px; display: flex; align-items: center; gap: 10px; }
-        .exp-card li::before { content: "◈"; color: var(--gold); }
+    .container {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
 
-        /* Why Me Section with Glow */
-        .why-me { padding: 100px 0; border-top: 1px solid #111; margin-top: 80px; text-align: center; }
-        .benefit-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-top: 50px; }
-        .benefit-card { padding: 40px; border-radius: 25px; background: rgba(255,255,255,0.02); border: 1px solid transparent; transition: 0.6s; }
-        .benefit-card:hover { background: rgba(212, 175, 55, 0.03); border-color: var(--gold); transform: scale(1.05); }
-        .benefit-card h4 { color: var(--gold); margin-bottom: 15px; text-transform: uppercase; letter-spacing: 2px; font-size: 1rem; }
+    /* NAVIGATION */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(9, 9, 11, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-color);
+      padding: 16px 0;
+    }
 
-        /* Pricing Section */
-        .cta-section { text-align: center; padding: 120px 0; }
-        .btn-collab { padding: 25px 80px; background: #fff; color: #000; border-radius: 100px; font-weight: 900; text-transform: uppercase; cursor: pointer; border: none; font-size: 1.1rem; letter-spacing: 2px; }
-        .btn-collab:hover { background: var(--gold); color: #fff; transform: scale(1.05); box-shadow: 0 10px 30px var(--gold-glow); }
+    .nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
 
-        #price-list { max-height: 0; overflow: hidden; opacity: 0; transition: 1.5s cubic-bezier(0.16, 1, 0.3, 1); }
-        #price-list.active { max-height: 2000px; opacity: 1; margin-top: 80px; }
+    .logo {
+      font-weight: 800;
+      font-size: 1.1rem;
+      letter-spacing: -0.5px;
+      color: var(--text-main);
+      text-decoration: none;
+    }
 
-        .price-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-        .p-card { background: #080808; border: 1px solid #1a1a1a; padding: 50px; border-radius: 40px; text-align: center; position: relative; overflow: hidden; cursor: pointer; }
-        .p-card:hover { border-color: var(--gold); }
-        .price-hover-info { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: var(--gold); color: #000; padding: 40px; display: flex; flex-direction: column; align-items: center; justify-content: center; font-weight: 700; opacity: 0; transform: translateY(100%); transition: 0.5s ease; }
-        .p-card:hover .price-hover-info { opacity: 1; transform: translateY(0); }
+    .logo span {
+      color: var(--accent);
+    }
 
-        footer { padding: 100px 0 60px; border-top: 1px solid #111; text-align: center; }
-        .thanks-note { max-width: 700px; margin: 0 auto 50px; font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; color: #fff; }
-        .footer-links a { margin: 0 20px; color: #fff; text-decoration: none; font-weight: 700; opacity: 0.7; }
-        .footer-links a:hover { opacity: 1; color: var(--gold); }
-    </style>
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--text-main);
+    }
+
+    /* BOUTONS */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 24px;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-primary {
+      background-color: var(--accent);
+      color: #fff;
+    }
+
+    .btn-primary:hover {
+      background-color: var(--accent-hover);
+      transform: translateY(-2px);
+    }
+
+    .btn-whatsapp {
+      background-color: var(--whatsapp);
+      color: #fff;
+    }
+
+    .btn-whatsapp:hover {
+      background-color: var(--whatsapp-hover);
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+    }
+
+    .btn-outline:hover {
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    /* HERO SECTION */
+    .hero {
+      padding: 80px 0 60px;
+      text-align: center;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: rgba(99, 102, 241, 0.12);
+      border: 1px solid rgba(99, 102, 241, 0.3);
+      color: #818cf8;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.2rem, 5vw, 3.6rem);
+      font-weight: 800;
+      letter-spacing: -1.5px;
+      line-height: 1.15;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 span {
+      background: linear-gradient(90deg, #818cf8, #c084fc);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero p {
+      max-width: 680px;
+      margin: 0 auto 32px;
+      color: var(--text-muted);
+      font-size: 1.1rem;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 14px;
+      margin-bottom: 40px;
+    }
+
+    .tools-bar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .tool-tag {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      padding: 6px 14px;
+      border-radius: 8px;
+      font-weight: 500;
+    }
+
+    /* SECTIONS GENERALES */
+    section {
+      padding: 70px 0;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .section-header h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      margin-bottom: 10px;
+    }
+
+    .section-header p {
+      color: var(--text-muted);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* GALERIE VIDEO 9:16 */
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+    }
+
+    .video-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 16px;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .video-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(99, 102, 241, 0.4);
+    }
+
+    .video-wrapper {
+      position: relative;
+      padding-bottom: 177.77%; /* Format vertical 9:16 */
+      height: 0;
+      overflow: hidden;
+      border-radius: 12px;
+      background: #18181b;
+      margin-bottom: 16px;
+    }
+
+    .video-wrapper iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    .video-tag {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: #818cf8;
+      margin-bottom: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .video-card h3 {
+      font-size: 1.1rem;
+      margin-bottom: 6px;
+    }
+
+    .video-card p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    /* SERVICES & EXPERTISES */
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+    }
+
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 28px;
+    }
+
+    .card h3 {
+      font-size: 1.25rem;
+      margin-bottom: 12px;
+    }
+
+    .card p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 16px;
+    }
+
+    .card ul {
+      list-style: none;
+    }
+
+    .card ul li {
+      font-size: 0.9rem;
+      color: var(--text-main);
+      padding: 6px 0;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .card ul li::before {
+      content: "✓";
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    /* TARIFS */
+    .pricing-card {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .pricing-card.featured {
+      border-color: var(--accent);
+      background: linear-gradient(180deg, rgba(99, 102, 241, 0.08) 0%, var(--bg-card) 100%);
+    }
+
+    .popular-badge {
+      position: absolute;
+      top: -12px;
+      right: 20px;
+      background: var(--accent);
+      color: #fff;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: 999px;
+    }
+
+    .price {
+      font-size: 2.4rem;
+      font-weight: 800;
+      margin: 12px 0;
+    }
+
+    .price span {
+      font-size: 0.95rem;
+      font-weight: 400;
+      color: var(--text-muted);
+    }
+
+    .pricing-card .btn {
+      width: 100%;
+      margin-top: 24px;
+    }
+
+    /* CTA FINAL */
+    .cta-box {
+      background: linear-gradient(135deg, rgba(99, 102, 241, 0.15), rgba(168, 85, 247, 0.1));
+      border: 1px solid rgba(99, 102, 241, 0.3);
+      border-radius: 20px;
+      padding: 48px 24px;
+      text-align: center;
+    }
+
+    .cta-box h2 {
+      font-size: 1.9rem;
+      margin-bottom: 12px;
+    }
+
+    .cta-box p {
+      color: var(--text-muted);
+      max-width: 550px;
+      margin: 0 auto 28px;
+    }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--border-color);
+      padding: 32px 0;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+
+    @media (max-width: 640px) {
+      .nav-links a:not(.btn) {
+        display: none;
+      }
+      .hero {
+        padding: 50px 0 40px;
+      }
+    }
+  </style>
 </head>
 <body>
-    <div class="bg-animate" id="bgAnimate"></div>
-    <div class="container">
-        <header>
-            <span class="badge-premium">AI Low-Code Specialist | Growth</span>
-            <h1>Tokiniaina Michaël</h1>
-            <p class="hero-desc">
-                Je propulse les marques via l'intelligence artificielle et le développement Low-Code. Je fusionne rapidité d'exécution, performance marketing et production visuelle pour transformer vos idées en succès mesurables.
-            </p>
-            <div style="margin-top: 40px; display: flex; gap: 20px; flex-wrap: wrap;">
-                <a href="https://drive.google.com/drive/folders/1Wew1dCpIvqizVyB5BcDOTj-Aj30oUy5x?usp=drive_link" class="work-btn" style="padding: 18px 35px; border: 1px solid var(--gold); border-radius: 15px; color: #fff; text-decoration: none; font-weight: 700; background: rgba(212, 175, 55, 0.05);" target="_blank">Visionner mes Vidéos</a>
-                <a href="https://drive.google.com/drive/folders/1lV5lU9wlutyCX9FL7s-3kRV4zxHuQMqj?usp=sharing" class="work-btn" style="padding: 18px 35px; border: 1px solid #222; border-radius: 15px; color: #fff; text-decoration: none; font-weight: 700;" target="_blank">Brand Identity: Bodour</a>
-            </div>
-        </header>
 
-        <div class="expertise-grid">
-            <div class="exp-card">
-                <i class="fa-solid fa-microchip"></i>
-                <h3>AI & Low-Code Web</h3>
-                <p>Déploiement ultra-rapide de sites web via les meilleurs outils IA et plateformes Low-Code.</p>
-                <ul>
-                    <li>WordPress & Shopify Assistés par IA</li>
-                    <li>Automatisation de catalogues TikTok</li>
-                    <li>Design UX généré par IA</li>
-                    <li>Vitesse & Performance Mobile</li>
-                </ul>
-            </div>
-            <div class="exp-card">
-                <i class="fa-solid fa-chart-line"></i>
-                <h3>Performance Marketing</h3>
-                <p>Stratégies d'acquisition pour un trafic qualifié et une visibilité maximale.</p>
-                <ul>
-                    <li>Campagnes Google Search & Display</li>
-                    <li>Rédaction SEO haute conversion</li>
-                    <li>Analyse de données & Tracking</li>
-                    <li>Optimisation continue du ROI</li>
-                </ul>
-            </div>
-            <div class="exp-card">
-                <i class="fa-solid fa-clapperboard"></i>
-                <h3>Visual Production</h3>
-                <p>Création de contenus vidéos impactants pour engager vos communautés.</p>
-                <ul>
-                    <li>Montage CapCut & After Effects</li>
-                    <li>Qualité cinématographique en volume</li>
-                    <li>Voix-off IA haute fidélité</li>
-                    <li>Stratégies de contenu viral</li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="why-me">
-            <h2 style="font-family: 'Cormorant Garamond'; font-size: 3rem;">Pourquoi me choisir ?</h2>
-            <div class="benefit-grid">
-                <div class="benefit-card">
-                    <i class="fa-solid fa-bolt" style="color: var(--gold); font-size: 1.5rem; margin-bottom: 20px;"></i>
-                    <h4>Vitesse IA</h4>
-                    <p>Vos projets livrés en un temps record grâce à la puissance du Low-Code et de l'IA.</p>
-                </div>
-                <div class="benefit-card">
-                    <i class="fa-solid fa-bullseye" style="color: var(--gold); font-size: 1.5rem; margin-bottom: 20px;"></i>
-                    <h4>Focus Résultats</h4>
-                    <p>Chaque pixel et chaque ligne de code est optimisé pour votre retour sur investissement.</p>
-                </div>
-                <div class="benefit-card">
-                    <i class="fa-solid fa-infinity" style="color: var(--gold); font-size: 1.5rem; margin-bottom: 20px;"></i>
-                    <h4>Service 360°</h4>
-                    <p>Un seul interlocuteur pour votre site, vos publicités et votre production vidéo.</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="cta-section">
-            <button class="btn-collab" onclick="showPricing()">Consulter mes Tarifs</button>
-            <div id="price-list">
-                <div class="price-grid">
-                    <div class="p-card">
-                        <h4>Production Vidéo</h4>
-                        <div style="font-size: 2.5rem; color: var(--gold); font-weight: 800; margin: 20px 0;">400€</div>
-                        <p style="color: var(--text-muted);">Mensuel / Qualité & Volume</p>
-                        <div class="price-hover-info"><p>Édition dynamique, Sound Design, et production de vidéos haute qualité en volume.</p></div>
-                    </div>
-                    <div class="p-card" style="border-color: var(--gold); box-shadow: 0 0 15px var(--gold-glow);">
-                        <h4>E-commerce Master</h4>
-                        <div style="font-size: 2.5rem; color: var(--gold); font-weight: 800; margin: 20px 0;">450€</div>
-                        <p style="color: var(--text-muted);">Par Projet / Boutique Low-Code</p>
-                        <div class="price-hover-info"><p>Boutique clé en main, configuration TikTok Shop, SEO intégré et design UX haut de gamme.</p></div>
-                    </div>
-                    <div class="p-card">
-                        <h4>Brand Management</h4>
-                        <div style="font-size: 2.5rem; color: var(--gold); font-weight: 800; margin: 20px 0;">200€</div>
-                        <p style="color: var(--text-muted);">Mensuel / Community Management</p>
-                        <div class="price-hover-info"><p>Gestion complète, publication stratégique et animation de communauté quotidienne.</p></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <footer>
-            <p class="thanks-note">Merci de votre visite. Bâtissons ensemble l'avenir de votre marque.</p>
-            <div class="footer-links">
-                <a href="https://wa.me/261376520724">WhatsApp</a>
-                <a href="mailto:tokiniainatovomichael@gmail.com">Contact</a>
-                <a href="https://drive.google.com/file/d/1j4saLBoAMc1kNlCJmsSURu0SWkZ0T02q/view?usp=sharing">Mon CV</a>
-            </div>
-            <p style="font-size: 0.7rem; color: #333; letter-spacing: 5px; margin-top: 40px; font-weight: 800;">TOKINIANIA MICKAËL | MICKIDROID LAB © 2026</p>
-        </footer>
+  <!-- EN-TÊTE -->
+  <header>
+    <div class="container nav-inner">
+      <a href="#" class="logo">MICKIDROID<span>.LAB</span></a>
+      <nav class="nav-links">
+        <a href="#videos">Réalisations</a>
+        <a href="#services">Services</a>
+        <a href="#tarifs">Tarifs</a>
+        <a href="https://wa.me" target="_blank" class="btn btn-whatsapp" style="padding: 8px 16px; font-size: 0.85rem;">WhatsApp</a>
+      </nav>
     </div>
+  </header>
 
-    <script>
-        const icons = ['fa-microchip', 'fa-bolt', 'fa-rocket', 'fa-play', 'fa-chart-pie'];
-        const bg = document.getElementById('bgAnimate');
-        for (let i = 0; i < 20; i++) {
-            const icon = document.createElement('i');
-            icon.className = `fa-solid ${icons[Math.floor(Math.random() * icons.length)]} floating-icon`;
-            icon.style.left = `${Math.random() * 100}vw`;
-            icon.style.animationDuration = `${15 + Math.random() * 10}s`;
-            icon.style.fontSize = `${1 + Math.random()}rem`;
-            bg.appendChild(icon);
-        }
-        function showPricing() {
-            const list = document.getElementById('price-list');
-            list.classList.toggle('active');
-            if (list.classList.contains('active')) { window.scrollBy({ top: 500, behavior: 'smooth' }); }
-        }
-    </script>
-</body>
-</html>
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <div class="container">
+      <div class="badge">Monteur Vidéo Short-Form & Créateur IA • Dispo Immédiate</div>
+      <h1>Des vidéos courtes qui captent l'attention et <span>boostent vos ventes</span></h1>
+      <p>
+        Je suis <strong>Tokiniaina Michaël</strong>, monteur vidéo freelance spécialisé dans les formats verticaux (TikTok, Reels, Shorts) et la génération vidéo par IA. J'accompagne les marques e-commerce et créateurs de contenu avec des montages dynamiques et rapides.
+      </p>
+      <div class="hero-buttons">
+        <a href="#videos" class="btn btn-primary">Voir mes réalisations vidéo</a>
+        <a href="https://wa.me?text=Bonjour%20Micha%C3%ABl%2C%20j%27ai%20vu%20ton%20portfolio%20et%20j%27aimerais%20discuter%20d%27un%20projet%20vid%C3%A9o." target="_blank" class="btn btn-whatsapp">Discuter sur WhatsApp</a>
+        <!-- Remplace le # par le lien vers ton Google Drive si tu veux garder un accès secondaire -->
